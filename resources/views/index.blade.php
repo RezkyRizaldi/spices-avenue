@@ -4,7 +4,7 @@
 
 @section('content')
 <div id="whatsapp"></div>
-<section class="p-lg-5" style="background-image: url('https://template52.webekspor.com/wp-content/uploads/2022/06/slide_spice1.jpg'); background-position: center; background-size: cover" data-aos="fade-in">
+<section class="p-lg-5 bg-image" style="background-image: url('{{ asset('assets/images/hero-bg.jpg') }}'); background-position: center; background-size: cover" data-aos="fade-in">
 	<div class="container-fluid p-4 p-lg-5" style="height: max-content">
 		<div style="max-width: 640px;">
 			<h1 class="display-4 text-uppercase fw-semibold">The World's Spice Producers</h1>
@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="col-lg-7 flex-shrink-0">
-			<img class="ms-auto d-block mw-100" src="https://template52.webekspor.com/wp-content/uploads/2022/06/spices3.jpg" alt="Image" style="object-fit: cover" data-aos="fade-left" data-aos-duration="1500" />
+			<img class="ms-auto d-block mw-100" src="{{ asset('assets/images/about1.jpg') }}" alt="About section image" style="object-fit: cover" data-aos="fade-left" data-aos-duration="1500" />
 		</div>
 	</div>
 </section>
@@ -31,38 +31,50 @@
 	<p class="fs-6 text-muted lead col-lg-5 mx-auto mb-5" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">You can see our gallery here, click to checkout our collections. You can see our daily activity and products that exported to many countries and regions all over the world.</p>
 	<div class="row" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
 		<div class="col-lg-3 pb-4 pb-lg-0">
-			<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 100%">
-				<img loading="lazy" src="https://template52.webekspor.com/wp-content/uploads/2022/06/spices9.jpeg" class="w-100" style="min-height: 100%" alt="Boat on Calm Water" data-lightbox="spices9" data-title="Spices" data-alt='Spices Image' />
-			</div>
+			<a href="{{ asset('assets/images/gallery1.jpeg') }}" data-lightbox="gallery1" data-title="Spices" data-alt="Spices Image">
+				<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 100%">
+					<img loading="lazy" src="{{ asset('assets/images/gallery1.jpeg') }}" class="w-100" style="min-height: 100%" alt="Gallery image 1" />
+				</div>
+			</a>
 		</div>
 		<div class="col-lg-9">
 			<div class="row mb-lg-4">
 				<div class="col-lg-8 pb-4 pb-lg-0">
-					<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 300px">
-						<img loading="lazy" src="https://template52.webekspor.com/wp-content/uploads/2022/06/spices-herbs.jpg" class="w-100" style="min-height: 100%" alt="Mountains in the Clouds" />
-					</div>
+					<a href="{{ asset('assets/images/gallery2.jpg') }}" data-lightbox="gallery2" data-title="Spices" data-alt="Spices Image">
+						<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 300px">
+							<img loading="lazy" src="{{ asset('assets/images/gallery2.jpg') }}" class="w-100" style="min-height: 100%" alt="Gallery image 2" />
+						</div>
+					</a>
 				</div>
 				<div class="col-lg-4 pb-4 pb-lg-0">
-					<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 300px">
-						<img loading="lazy" src="https://template52.webekspor.com/wp-content/uploads/2022/06/spices4.jpeg" class="w-100" style="min-height: 100%" alt="Mountains in the Clouds" />
-					</div>
+					<a href="{{ asset('assets/images/gallery3.jpeg') }}" data-lightbox="gallery3" data-title="Spices" data-alt="Spices Image">
+						<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 300px">
+							<img loading="lazy" src="{{ asset('assets/images/gallery3.jpeg') }}" class="w-100" style="min-height: 100%" alt="Gallery image 3" />
+						</div>
+					</a>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg pb-4 pb-lg-0">
-					<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 100%">
-						<img loading="lazy" src="https://template52.webekspor.com/wp-content/uploads/2022/06/download.jpeg" class="w-100" style="min-height: 100%" alt="Mountains in the Clouds" />
-					</div>
+					<a href="{{ asset('assets/images/gallery4.jpeg') }}" data-lightbox="gallery4" data-title="Spices" data-alt="Spices Image">
+						<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 100%">
+							<img loading="lazy" src="{{ asset('assets/images/gallery4.jpeg') }}" class="w-100" style="min-height: 100%" alt="Gallery image 4" />
+						</div>
+					</a>
 				</div>
 				<div class="col-lg pb-4 pb-lg-0">
-					<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 100%">
-						<img loading="lazy" src="https://template52.webekspor.com/wp-content/uploads/2022/06/spices10.jpeg" class="w-100" style="min-height: 100%" alt="Mountains in the Clouds" />
-					</div>
+					<a href="{{ asset('assets/images/gallery5.jpeg') }}" data-lightbox="gallery5" data-title="Spices" data-alt="Spices Image">
+						<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 100%">
+							<img loading="lazy" src="{{ asset('assets/images/gallery5.jpeg') }}" class="w-100" style="min-height: 100%" alt="Gallery image 5" />
+						</div>
+					</a>
 				</div>
 				<div class="col-lg">
-					<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 100%">
-						<img loading="lazy" src="https://template52.webekspor.com/wp-content/uploads/2022/06/spices7.jpg" class="w-100" style="min-height: 100%" alt="Mountains in the Clouds" />
-					</div>
+					<a href="{{ asset('assets/images/gallery6.jpg') }}" data-lightbox="gallery6" data-title="Spices" data-alt="Spices Image">
+						<div class="bg-image hover-zoom shadow-1-strong rounded" style="height: 100%">
+							<img loading="lazy" src="{{ asset('assets/images/gallery6.jpg') }}" class="w-100" style="min-height: 100%" alt="Gallery image 6" />
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -71,7 +83,7 @@
 <section class="py-5 px-3 p-lg-5 text-center text-lg-start position-relative">
 	<div class="row flex-column flex-lg-row align-items-center justify-content-between">
 		<div class="col-lg-7 flex-shrink-0 order-1 order-lg-0 mt-5 mt-lg-0">
-			<img class="me-auto d-block mw-100" src="https://template52.webekspor.com/wp-content/uploads/2022/06/adobestock_102589163_spices_basil_kitchen_table_fmt.png" alt="Image" style="object-fit: cover" data-aos="fade-right" data-aos-duration="1500" />
+			<img class="me-auto d-block mw-100" src="{{ asset('assets/images/about2.png') }}" alt="About section image 2" style="object-fit: cover" data-aos="fade-right" data-aos-duration="1500" />
 		</div>
 		<div class="col-lg-5 flex-grow-1">
 			<div data-aos="fade-left" data-aos-duration="1500">
@@ -91,7 +103,7 @@
 		<div class="row">
 			<div class="col-12 col-lg-4">
 				<div class="card mb-4 mb-lg-0">
-					<img src="https://template52.webekspor.com/wp-content/uploads/2022/07/cloves.png" class="card-img-top" alt="Fissure in Sandstone" style="height: 300px" data-mdb-toggle="modal" data-mdb-target="#productModal" />
+					<img src="{{ asset('assets/images/product1.png') }}" class="card-img-top" alt="Product image 1" style="height: 300px" data-mdb-toggle="modal" data-mdb-target="#productModal" />
 					<div class="card-body">
 						<h5 class="card-title fw-semibold">Cloves</h5>
 						<p class="card-text">Cloves are a spice made from the flower buds of an evergreen tree called. Clove flower buds are harvested in their immature state and then dried.</p>
@@ -100,7 +112,7 @@
 			</div>
 			<div class="col-12 col-lg-4">
 				<div class="card mb-4 mb-lg-0">
-					<img src="https://template52.webekspor.com/wp-content/uploads/2022/07/nutmag.jpg" class="card-img-top" alt="Fissure in Sandstone" style="height: 300px" data-mdb-toggle="modal" data-mdb-target="#productModal" />
+					<img src="{{ asset('assets/images/product2.jpg') }}" class="card-img-top" alt="Product image 2" style="height: 300px" data-mdb-toggle="modal" data-mdb-target="#productModal" />
 					<div class="card-body">
 						<h5 class="card-title fw-semibold">Nutmeg</h5>
 						<p class="card-text">Nutmeg is a spice made from the seed of the nutmeg tree (Myristica fragrant), a native Indonesian evergreen tree that is the source of two popular spices.</p>
@@ -109,7 +121,7 @@
 			</div>
 			<div class="col-12 col-lg-4">
 				<div class="card">
-					<img src="https://template52.webekspor.com/wp-content/uploads/2022/07/ragam-manfaat-kapulaga-untuk-kesehatan-tubuh.jpeg" class="card-img-top" alt="Fissure in Sandstone" style="height: 300px" data-mdb-toggle="modal" data-mdb-target="#productModal" />
+					<img src="{{ asset('assets/images/product3.jpeg') }}" class="card-img-top" alt="Product image 3" style="height: 300px" data-mdb-toggle="modal" data-mdb-target="#productModal" />
 					<div class="card-body">
 						<h5 class="card-title fw-semibold">Cardamom</h5>
 						<p class="card-text">Cardamom is a spice made from the seed pods of various plants in the ginger family. Cardamom pods are spindle-shaped and have a triangular cross-section.</p>
@@ -131,7 +143,7 @@
 					<div class="swiper-slide" data-aos="fade-in">
 						<div class="card bg-light">
 							<div class="bg-image hover-zoom" style="height: 100%">
-								<img src="https://template52.webekspor.com/wp-content/uploads/2022/06/spices1.jpeg" class="card-img-top swiper-lazy" alt="Fissure in Sandstone" style="height: 300px" />
+								<img src="{{ asset('assets/images/blog1.jpeg') }}" class="card-img-top swiper-lazy" alt="Blog image" style="height: 300px" />
 								<div class="swiper-lazy-preloader"></div>
 							</div>
 							<div class="card-body">
@@ -143,7 +155,7 @@
 					<div class="swiper-slide" data-aos="fade-in" data-aos-delay="50">
 						<div class="card bg-light">
 							<div class="bg-image hover-zoom" style="height: 100%">
-								<img src="https://template52.webekspor.com/wp-content/uploads/2022/06/spices-that-heal.jpeg" class="card-img-top swiper-lazy" alt="Fissure in Sandstone" style="height: 300px" />
+								<img src="{{ asset('assets/images/blog2.jpeg') }}" class="card-img-top swiper-lazy" alt="Blog image 2" style="height: 300px" />
 								<div class="swiper-lazy-preloader"></div>
 							</div>
 							<div class="card-body">
@@ -155,7 +167,7 @@
 					<div class="swiper-slide" data-aos="fade-in" data-aos-delay="100">
 						<div class="card bg-light">
 							<div class="bg-image hover-zoom" style="height: 100%">
-								<img src="https://template52.webekspor.com/wp-content/uploads/2022/06/spices2.jpg" class="card-img-top swiper-lazy" alt="Fissure in Sandstone" style="height: 300px" />
+								<img src="{{ asset('assets/images/blog3.jpg') }}" class="card-img-top swiper-lazy" alt="Blog image 3" style="height: 300px" />
 								<div class="swiper-lazy-preloader"></div>
 							</div>
 							<div class="card-body">
@@ -173,7 +185,7 @@
 </section>
 <section>
 	<div class="bg-image" style="object-fit: cover">
-		<img src="https://template52.webekspor.com/wp-content/uploads/2022/06/ss-225001330-spices-testing-services.jpeg" class="w-100" alt="Louvre Museum" />
+		<img src="{{ asset('assets/images/section-bg.jpeg') }}" class="w-100" alt="Section background" />
 		<div class="mask" style="background-color: rgba(0, 0, 0, 0.4)">
 			<div class="d-flex justify-content-center align-items-center h-100">
 				<p class="text-white mb-0 display-5 text-uppercase fw-light text-center" data-aos="fade-in" data-aos-duration="1000">The largest exporter of<br />spice and spice items</h2>
@@ -187,7 +199,7 @@
 		<div class="row">
 			<div class="col-12 col-lg-4">
 				<div class="bg-image hover-overlay rounded mb-4 mb-lg-0" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="100">
-					<img src="https://template52.webekspor.com/wp-content/uploads/2022/04/4s.webp" class="img-fluid" />
+					<img src="{{ asset('assets/images/team.jpeg') }}" class="img-fluid" alt="Team image" />
 					<div class="mask" style="background-color: rgba(0, 0, 0, 0.3)"></div>
 					<div class="position-absolute bottom-0 start-0 text-light p-4">
 						<h5 class="mb-0 fw-bold" style="text-shadow: 1px 1px #000">Andrew Cameron</h5>
@@ -197,7 +209,7 @@
 			</div>
 			<div class="col-12 col-lg-4">
 				<div class="bg-image hover-overlay rounded mb-4 mb-lg-0" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200">
-					<img src="https://template52.webekspor.com/wp-content/uploads/2022/04/3-1.webp" class="img-fluid" />
+					<img src="{{ asset('assets/images/team2.jpeg') }}" class="img-fluid" alt="Team image 2" />
 					<div class="mask" style="background-color: rgba(0, 0, 0, 0.3)"></div>
 					<div class="position-absolute bottom-0 start-0 text-light p-4">
 						<h5 class="mb-0 fw-bold" style="text-shadow: 1px 1px #000">Amelia Margaret</h5>
@@ -207,7 +219,7 @@
 			</div>
 			<div class="col-12 col-lg-4">
 				<div class="bg-image hover-overlay rounded" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-					<img src="https://template52.webekspor.com/wp-content/uploads/2022/04/2-1.webp" class="img-fluid" />
+					<img src="{{ asset('assets/images/team3.jpeg') }}" class="img-fluid" alt="Team image 3" />
 					<div class="mask" style="background-color: rgba(0, 0, 0, 0.3)"></div>
 					<div class="position-absolute bottom-0 start-0 text-light p-4">
 						<h5 class="mb-0 fw-bold" style="text-shadow: 1px 1px #000">Robert Longdon</h5>
