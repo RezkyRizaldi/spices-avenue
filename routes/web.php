@@ -24,3 +24,6 @@ Route::get('/category/article', function () {
 Route::get('/author/superadmin', function () {
     return view('authors.show');
 })->name('authors.show');
+Route::get('/archive/april-2022', function () {
+    return view('archives.show');
+})->name('archives.show');

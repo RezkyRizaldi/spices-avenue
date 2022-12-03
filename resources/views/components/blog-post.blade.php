@@ -2,13 +2,15 @@
 	<div class="row">
 		<div class="col-12 col-lg-7">
 			<div class="px-3">
-				@if (!request()->routeIs('authors.show'))
-				<h2>Artikel</h2>
-				@else
+				@if (request()->routeIs('authors.show'))
 				<div class="d-flex justify-content-between">
 					<h2>Superadmin</h2>
 					<img class="rounded-circle" src="{{ asset('assets/images/default-pfp.png') }}" alt="Default profile picture" />
 				</div>
+				@elseif (request()->routeIs('archives.show'))
+				<h2>Archive April 2022</h2>
+				@else
+				<h2>Artikel</h2>
 				@endif
 				<hr />
 				<img class="d-block mx-auto img-fluid" src="{{ asset('assets/images/blog1.jpeg') }}" alt="Blog image" />
@@ -90,7 +92,7 @@
 					<h2>Arsip</h2>
 					<ul class="list-unstyled">
 						<li>
-							<a title="pos" class="text-decoration-underline" href="#">April 2022</a>
+							<a title="pos" class="text-decoration-underline" href="{{ route('archives.show') }}">April 2022</a>
 						</li>
 					<ul />
 				</div>
