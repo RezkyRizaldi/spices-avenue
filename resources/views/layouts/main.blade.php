@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-	@include('layout.head')
+	@include('layouts.head')
 	<body>
 		<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="false">
 			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -16,11 +16,13 @@
 				</div>
 			</div>
 		</div>
-		@include('layout.header')
+		@include('layouts.header')
 		<main>
 			@yield('content')
 		</main>
-		@include('layout.footer')
-		@include('layout.scripts')
+		@if (!request()->routeIs('posts.show'))
+			@include('layouts.footer')
+		@endif
+		@include('layouts.scripts')
 	</body>
 </html>

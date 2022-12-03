@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 
 @section('title', config('app.name'))
 
@@ -141,16 +141,18 @@
 			<div id="blogSwiper" class="swiper">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide" data-aos="fade-in">
-						<div class="card bg-light">
-							<div class="bg-image hover-zoom h-100">
-								<img src="{{ asset('assets/images/blog1.jpeg') }}" class="card-img-top swiper-lazy blog_img" alt="Blog image" />
-								<div class="swiper-lazy-preloader"></div>
+						<a href="{{ route('posts.show') }}" title="Judul">
+							<div class="card bg-light">
+								<div class="bg-image hover-zoom h-100">
+									<img src="{{ asset('assets/images/blog1.jpeg') }}" class="card-img-top swiper-lazy blog_img" alt="Blog image" />
+									<div class="swiper-lazy-preloader"></div>
+								</div>
+								<div class="card-body">
+									<h5 class="card-subtitle text-dark mb-2 fs-6">Black pepper exports increase as economy recovers: IEB Institute</h5>
+									<p class="card-text text-muted">6 April 2022 &middot; <i class="fa-solid fa-bars-staggered"></i> Artikel</p>
+								</div>
 							</div>
-							<div class="card-body">
-								<h5 class="card-subtitle text-dark mb-2 fs-6">Black pepper exports increase as economy recovers: IEB Institute</h5>
-								<p class="card-text text-muted">6 April 2022 &middot; <i class="fa-solid fa-bars-staggered"></i> Artikel</p>
-							</div>
-						</div>
+						</a>
 					</div>
 					<div class="swiper-slide" data-aos="fade-in" data-aos-delay="50">
 						<div class="card bg-light">

@@ -15,3 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeController::class)->name('home');
+Route::get('/post/detail', function () {
+    return view('posts.show');
+})->name('posts.show');

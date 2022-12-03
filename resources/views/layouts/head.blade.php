@@ -95,7 +95,7 @@
 	<meta name="imagemode" content="force" />
 	<meta name="browsermode" content="application" />
 	<meta name="nightmode" content="disable" />
-	<meta name="layoutmode" content="fitscreen" />
+	<meta name="layoutsmode" content="fitscreen" />
 	<meta name="wap-font-scale" content="no" />
 
 	{{--  Favicon  --}}

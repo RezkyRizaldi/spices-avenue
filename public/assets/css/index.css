@@ -3,9 +3,12 @@
 	--mdb-success-rgb: 95, 172, 0;
 }
 
-html,
 body {
 	overflow-x: hidden;
+}
+
+textarea {
+	resize: none;
 }
 
 header nav .navbar-nav {
