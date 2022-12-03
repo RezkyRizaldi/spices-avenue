@@ -9,9 +9,12 @@
 				</div>
 				@elseif (request()->routeIs('archives.show'))
 				<h2>Archive April 2022</h2>
+				@elseif (request()->routeIs('home') && !empty(request('search')))
+				<h2>Search result for: {{ request('search') }}</h2>
 				@else
 				<h2>Artikel</h2>
 				@endif
+				{{-- <p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p> --}}
 				<hr />
 				<img class="d-block mx-auto img-fluid" src="{{ asset('assets/images/blog1.jpeg') }}" alt="Blog image" />
 				<h2 class="mt-3">Insights on the Seasoning & Spices Global Market to 2030</h2>
@@ -58,15 +61,18 @@
 		<div class="vr col-lg-1 px-0"></div>
 		<div class="col-12 col-lg-4">
 			<div class="px-3">
-				<div class="input-group">
-					<div class="form-outline">
-						<input type="search" id="search" class="form-control" />
-						<label class="form-label" for="search">Search</label>
+				<form action="{{ route('home') }}">
+					@csrf
+					<div class="input-group">
+						<div class="form-outline">
+							<input type="search" name="search" id="search" class="form-control" value="{{ request('search') }}" />
+							<label class="form-label" for="search">Search</label>
+						</div>
+						<button type="submit" class="btn btn-primary">
+							<i class="fas fa-search"></i>
+						</button>
 					</div>
-					<button type="button" class="btn btn-primary">
-						<i class="fas fa-search"></i>
-					</button>
-				</div>
+				</form>
 				<div class="my-5">
 					<h2>Pos Terbaru</h2>
 					<ul class="list-unstyled">

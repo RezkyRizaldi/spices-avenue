@@ -11,13 +11,13 @@
 				<ul class="navbar-nav">
 					@if (!request()->routeIs('posts.show'))
 					<li class="nav-item ms-3 ms-lg-0">
-						<a class="nav-link" aria-current="page" href="#about" title="About">About</a>
+						<a class="nav-link" aria-current="page" href="{{ route('home') }}#about" title="About">About</a>
 					</li>
 					<li class="nav-item ms-3 ms-lg-0">
-						<a class="nav-link" href="#gallery" title="Gallery">Gallery</a>
+						<a class="nav-link" href="{{ route('home') }}#gallery" title="Gallery">Gallery</a>
 					</li>
 					<li class="nav-item ms-3 ms-lg-0">
-						<a class="nav-link" href="#products" title="Products">Products</a>
+						<a class="nav-link" href="{{ route('home') }}#products" title="Products">Products</a>
 					</li>
 					@endif
 				</ul>
@@ -25,13 +25,13 @@
 				<ul class="navbar-nav">
 					@if (!request()->routeIs('posts.show'))
 					<li class="nav-item ms-3 ms-lg-0">
-						<a class="nav-link" aria-current="page" href="#blog" title="Blog">Blog</a>
+						<a class="nav-link" aria-current="page" href="{{ route('home') }}#blog" title="Blog">Blog</a>
 					</li>
 					<li class="nav-item ms-3 ms-lg-0">
-						<a class="nav-link" href="#team" title="Team">Team</a>
+						<a class="nav-link" href="{{ route('home') }}#team" title="Team">Team</a>
 					</li>
 					<li class="nav-item ms-3 ms-lg-0">
-						<a class="nav-link" href="#contact" title="Contact">Contact</a>
+						<a class="nav-link" href="{{ route('home') }}#contact" title="Contact">Contact</a>
 					</li>
 					@endif
 				</ul>

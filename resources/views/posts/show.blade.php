@@ -10,9 +10,15 @@
 			<h2 class="mt-3">Insights on the Seasoning & Spices Global Market to 2030</h2>
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="#respond">Leave a Comment</a></li>
-					<li class="breadcrumb-item"><a href="{{ route('categories.show') }}">Artikel</a></li>
-					<li class="breadcrumb-item active" aria-current="page">By <a href="#">superadmin</a></li>
+					<li class="breadcrumb-item">
+						<a href="#respond">Leave a Comment</a>
+					</li>
+					<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
+						<a href="{{ route('categories.show') }}">Artikel</a>
+					</li>
+					<li class="breadcrumb-item{{ request()->routeIs('auhtors.show') ? ' active' : '' }}" {{ request()->routeIs('authors.show') ? 'aria-current="page"' : '' }}>
+						By <a href="{{ route('authors.show') }}">superadmin</a>
+					</li>
 				</ol>
 			</nav>
 			<div>
@@ -28,7 +34,7 @@
 					<a href="#">Next Post<i class="fa-solid fa-arrow-right ms-2"></i></a>
 				</div>
 				<hr />
-				<section id="#respond">
+				<section id="respond">
 					<h3>Leave a Comment</h3>
 					<p>Your email address will not be published.
 					<form action="" method="POST">
