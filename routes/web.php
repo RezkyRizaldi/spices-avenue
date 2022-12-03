@@ -18,3 +18,6 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('/post/detail', function () {
     return view('posts.show');
 })->name('posts.show');
+Route::get('/category/article', function () {
+    return view('categories.show');
+})->name('categories.show');

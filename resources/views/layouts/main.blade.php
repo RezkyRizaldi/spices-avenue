@@ -20,7 +20,7 @@
 		<main>
 			@yield('content')
 		</main>
-		@if (!request()->routeIs('posts.show'))
+		@if (!request()->routeIs('posts.show') && !request()->routeIs('categories.show'))
 			@include('layouts.footer')
 		@endif
 		@include('layouts.scripts')
