@@ -2,8 +2,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
 ></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="text/javascript" src="{{ asset('assets/js/floating-wpp.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/lightbox.js') }}"></script>
 @stack('scripts')

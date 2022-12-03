@@ -1,0 +1,13 @@
+.swiper-button-prev,
+.swiper-button-next {
+	--swiper-navigation-size: 10px;
+	--swiper-navigation-color: #fff;
+	background-color: var(--mdb-success);
+	border-radius: 100%;
+	padding: 20px;
+	top: 40%;
+}
+
+.swiper-lazy-preloader {
+	--swiper-preloader-color: #fff;
+}

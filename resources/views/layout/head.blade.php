@@ -127,15 +127,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-	<link rel="stylesheet" href="{{ asset('assets/css/floating-wpp.min.css') }}" />
-	<link rel="stylesheet" href="{{ asset('assets/css/lightbox.css') }}" />
-	<style lang="css">
-		:root {
-			--mdb-success: #5FAC00;
-			--mdb-success-rgb: 95, 172, 0;
-		}
-	</style>
 	@stack('styles')
+	<link rel="stylesheet" href="{{ asset('assets/css/index.css') }}" />
 </head>

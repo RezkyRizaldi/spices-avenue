@@ -1,0 +1,87 @@
+:root {
+	--mdb-success: #5fac00;
+	--mdb-success-rgb: 95, 172, 0;
+}
+
+html,
+body {
+	overflow-x: hidden;
+}
+
+header nav .navbar-nav {
+	column-gap: 24px;
+}
+
+header nav #socialNav {
+	column-gap: 12px;
+}
+
+section#hero {
+	background-image: url("../images/hero-bg.jpg");
+	background-position: center;
+	background-size: cover;
+}
+
+section#hero #heroContainer {
+	height: max-content;
+}
+
+section#hero #heroWrapper {
+	max-width: 640px;
+}
+
+section#gallery .gallery_sm {
+	height: 300px;
+}
+
+section#gallery .gallery_img {
+	min-height: 100%;
+}
+
+section#products .products_img {
+	height: 300px;
+}
+
+section#blog .blog_img {
+	height: 300px;
+}
+
+section#section .mask {
+	--mdb-bg-opacity: 0.4;
+}
+
+section#team .mask {
+	--mdb-bg-opacity: 0.3;
+}
+
+section#contact hr {
+	width: 100px;
+}
+
+section#contact .card {
+	width: 18rem;
+	transition-property: box-shadow;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+
+section#contact .card:hover {
+	border: 0 !important;
+	box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+footer #address {
+	min-height: 100%;
+}
+
+#wavy {
+	z-index: -1;
+}
+
+.object_cover {
+	object-fit: cover;
+}
+
+.text_shadow {
+	text-shadow: 1px 1px #000;
+}

@@ -2,7 +2,7 @@
 	<div class="bg-success">
 		<div class="row mx-0">
 			<div class="col-12 col-lg-6 px-0">
-				<div class="pt-5 px-3 p-lg-5" style="min-height: 100%">
+				<div id="address" class="pt-5 px-3 p-lg-5">
 					<div class="p-3">
 						<img width="200" src="https://template52.webekspor.com/wp-content/uploads/2022/03/logo-ekspor-white.png" alt="{{ config('app.name') . ' Logo' }}" />
 						<p class="mt-3 text-light col-8">Jl. Indonesia Raya, Sudirman, Jakarta Selatan, DKI Jakarta,  Indonesia, 10150</p>
@@ -27,13 +27,13 @@
 							</li>
 						</ul>
 						<div class="d-flex gap-3">
-							<a class="link-light p-2 rounded-circle border border-white" href="#" target="_blank">
+							<a class="link-light p-2 rounded-circle border border-white" href="https://facebook.com/" target="_blank" title="Facebook">
 								<i class="fa-brands fa-xl fa-facebook"></i>
 							</a>
-							<a class="link-light p-2 rounded-circle border border-white" href="#" target="_blank">
+							<a class="link-light p-2 rounded-circle border border-white" href="https://instagram.com/" target="_blank" title="Insatgram">
 								<i class="fa-brands fa-xl fa-instagram"></i>
 							</a>
-							<a class="link-light p-2 rounded-circle border border-white" href="#" target="_blank">
+							<a class="link-light p-2 rounded-circle border border-white" href="https://youtube.com/" target="_blank" title="YouTube">
 								<i class="fa-brands fa-xl fa-youtube"></i>
 							</a>
 						</div>
