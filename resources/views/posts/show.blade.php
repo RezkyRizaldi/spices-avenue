@@ -3,7 +3,6 @@
 @section('title', 'Post Details - ' . config('app.name'))
 
 @section('content')
-<div id="whatsapp" title="WhatsApp"></div>
 <article id="blogDetail" class="container py-3 p-lg-5">
 	<div class="row">
 		<div class="col">
@@ -70,21 +69,3 @@
 	</div>
 </article>
 @endsection
-
-@push('styles')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<link rel="stylesheet" href="{{ asset('assets/css/floating-wpp.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('assets/css/lightbox.css') }}" />
-<link rel="stylesheet" href="{{ asset('assets/css/swiper.css') }}">
-@endpush
-
-@push('scripts')
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="text/javascript" src="{{ asset('assets/js/floating-wpp.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/lightbox.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/swiper.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/aos.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/whatsapp.js') }}"></script>
-@endpush

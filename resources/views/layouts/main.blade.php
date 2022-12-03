@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 	@include('layouts.head')
 	<body>
+		<div id="whatsapp" title="WhatsApp"></div>
 		<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="false">
 			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 				<div class="modal-content">
@@ -20,7 +21,7 @@
 		<main>
 			@yield('content')
 		</main>
-		@if (!request()->routeIs('posts.show') && !request()->routeIs('categories.show'))
+		@if (request()->routeIs('home'))
 			@include('layouts.footer')
 		@endif
 		@include('layouts.scripts')

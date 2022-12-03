@@ -21,3 +21,6 @@ Route::get('/post/detail', function () {
 Route::get('/category/article', function () {
     return view('categories.show');
 })->name('categories.show');
+Route::get('/author/superadmin', function () {
+    return view('authors.show');
+})->name('authors.show');

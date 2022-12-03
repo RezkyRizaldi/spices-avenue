@@ -3,4 +3,6 @@
 ></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @stack('scripts')
+<script type="text/javascript" src="{{ asset('assets/js/floating-wpp.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/whatsapp.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/index.js') }}"></script>
