@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
-@section('title', 'Archive Details - ' . config('app.name'))
+@section('title', $archivePosts->first()->date . ' - ' . config('app.name'))
 
 @section('content')
-	<x-blog-post />
+	<x-blog-post :$archives :$archivePosts :$categories :$posts />
 @endsection

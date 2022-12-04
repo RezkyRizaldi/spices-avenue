@@ -17,6 +17,10 @@ class HomeController extends Controller
     {
         if (!empty($request->search)) {
             return view('search', [
+                'archives' => Post::select('title', 'slug', 'published_at')
+                    ->selectRaw("DATE_FORMAT(published_at, '%M %Y') as date, DATE_FORMAT(published_at, '%M-%Y') as slug, YEAR(published_at) as year, MONTH(published_at) as month")
+                    ->groupBy('date')
+                    ->get(),
                 'categories' => Category::select(['name', 'slug'])->get(),
                 'posts' => Post::select(['title', 'slug'])
                     ->limit(5)
@@ -31,6 +35,7 @@ class HomeController extends Controller
                     ->filter($request->search)
                     ->latest()
                     ->get(),
+
             ]);
         }
 

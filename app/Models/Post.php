@@ -15,6 +15,8 @@ class Post extends Model
 
     protected $fillable = ['category_id', 'title', 'slug', 'image', 'body'];
 
+    protected $appends = ['date'];
+
     protected $casts = [
         'published_at' => 'datetime:d-m-Y',
         'created_at' => 'datetime:d-m-Y',
@@ -25,6 +27,13 @@ class Post extends Model
     {
         return Attribute::make(
             get: fn (string $value) => Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d M Y'),
+        );
+    }
+
+    protected function date(): Attribute
+    {
+        return new Attribute(
+            get: fn () => date('F Y', strtotime($this->published_at)),
         );
     }
 

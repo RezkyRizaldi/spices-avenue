@@ -3,5 +3,5 @@
 @section('title', "{$author->name} - " . config('app.name'))
 
 @section('content')
-	<x-blog-post :$author :$categories :$posts />
+	<x-blog-post :$archives :$author :$categories :$posts />
 @endsection

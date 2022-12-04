@@ -3,5 +3,5 @@
 @section('title', request('search') . ' - ' . config('app.name'))
 
 @section('content')
-	<x-blog-post :$categories :$posts :$searchPosts />
+	<x-blog-post :$archives :$categories :$posts :$searchPosts />
 @endsection

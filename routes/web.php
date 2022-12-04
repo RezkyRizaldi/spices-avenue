@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
@@ -20,9 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeController::class)->name('home');
-Route::get('/archive/april-2022', function () {
-    return view('archives.show');
-})->name('archives.show');
+Route::get('/archives/{archive}', [ArchiveController::class, 'show'])->name('archives.show');
 Route::resource('categories', CategoryController::class)->only(['show']);
 Route::resource('authors', AuthorController::class)->only(['show']);
 Route::resource('posts', PostController::class)->only(['show']);

@@ -8,14 +8,39 @@
 						<img class="rounded-circle" width="150" height="150" src="{{ $author->image }}" alt="{{ $author->name }}" />
 					</div>
 				@elseif (request()->routeIs('archives.show'))
-					<h2>Archive April 2022</h2>
+					<h2>Archive: {{ $archivePosts->first()->date }}</h2>
 				@elseif (request()->routeIs('home') && !empty(request('search')))
 					<h2>Search result for: {{ request('search') }}</h2>
 				@else
 					<h2>{{ $category->name }}</h2>
 				@endif
 				<hr />
-				@if (request()->routeIs('categories.show'))
+				@if (request()->routeIs('archives.show'))
+					@forelse ($archivePosts as $post)
+						<img class="d-block mx-auto img-fluid" src="{{ $post->image }}" alt="{{ $post->title }}" />
+						<h2 class="mt-3">{{ $post->title }}</h2>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a title="Leave a Comment" href="{{ route('posts.show', $post->slug) . '#respond' }}">Leave a Comment</a>
+								</li>
+								<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
+									<a title="{{ $post->category->name }}" href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
+								</li>
+								<li class="breadcrumb-item{{ request()->routeIs('authors.show') ? ' active' : '' }}" {{ request()->routeIs('authors.show') ? 'aria-current="page"' : '' }}>
+									By <a title="{{ $post->author->name }}" href="{{ route('authors.show', $post->author->slug) }}">{{ $post->author->name }}</a>
+								</li>
+							</ol>
+						</nav>
+						<div>
+							{!! $post->body !!}
+							<a href="{{ route('posts.show', $post->slug) }}" title="Read More">Read More <i class="fa-solid fa-angles-right"></i></a>
+						</div>
+						<hr />
+					@empty
+						<p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+					@endforelse
+				@elseif (request()->routeIs('categories.show'))
 					@forelse ($category->posts as $post)
 						<img class="d-block mx-auto img-fluid" src="{{ $post->image }}" alt="{{ $post->title }}" />
 						<h2 class="mt-3">{{ $post->title }}</h2>
@@ -126,9 +151,13 @@
 				<div class="my-5">
 					<h2>Arsip</h2>
 					<ul class="list-unstyled">
-						<li>
-							<a title="pos" class="text-decoration-underline" href="{{ route('archives.show') }}">April 2022</a>
-						</li>
+						@forelse ($archives as $archive)
+							<li>
+								<a title="{{ $archive->date }}" class="text-decoration-underline" href="{{ route('archives.show', Str::slug($archive->slug)) }}">{{ $archive->date }}</a>
+							</li>
+						@empty
+							<em>Tidak ada arsip terbaru untuk saat ini.</em>
+						@endforelse
 					<ul />
 				</div>
 				<div class="my-5">
