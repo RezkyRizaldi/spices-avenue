@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Product;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -39,6 +40,10 @@ class HomeController extends Controller
                 ])
                 ->select(['category_id', 'author_id', 'title', 'slug', 'image', 'published_at'])
                 ->limit(12)
+                ->get(),
+            'products' => Product::select(['name', 'description', 'image'])
+                ->limit(3)
+                ->latest()
                 ->get(),
         ]);
     }

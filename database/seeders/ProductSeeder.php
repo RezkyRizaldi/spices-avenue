@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Author;
+use App\Models\Product;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class AuthorSeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     public function run(): void
     {
-        Author::factory(10)->create();
+        Product::factory(3)->create();
     }
 }

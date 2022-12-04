@@ -100,33 +100,17 @@
 			<h2 class="text-uppercase">Products</h2>
 			<p class="fs-6 text-muted col-lg-5 lead mx-auto mb-5">Learn more about our product. You can see our product here, click to see more detail about our product.</p>
 			<div class="row">
-				<div class="col-12 col-lg-4">
-					<div class="card mb-4 mb-lg-0">
-						<img src="{{ asset('assets/images/product1.png') }}" class="card-img-top" height="300" alt="Product image 1" data-mdb-toggle="modal" data-mdb-target="#productModal" />
-						<div class="card-body">
-							<h5 class="card-title fw-semibold">Cloves</h5>
-							<p class="card-text">Cloves are a spice made from the flower buds of an evergreen tree called. Clove flower buds are harvested in their immature state and then dried.</p>
+				@foreach ($products as $product)
+					<div class="col-12 col-lg-4">
+						<div class="card mb-4 mb-lg-0">
+							<img src="{{ $product->image }}" class="card-img-top" height="300" alt="{{ $product->name }}" data-mdb-toggle="modal" data-mdb-target="#productModal{{ $loop->iteration }}" />
+							<div class="card-body">
+								<h5 class="card-title fw-semibold">{{ $product->name }}</h5>
+								<p class="card-text">{{ $product->description }}</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-12 col-lg-4">
-					<div class="card mb-4 mb-lg-0">
-						<img src="{{ asset('assets/images/product2.jpg') }}" class="card-img-top" height="300" alt="Product image 2" data-mdb-toggle="modal" data-mdb-target="#productModal" />
-						<div class="card-body">
-							<h5 class="card-title fw-semibold">Nutmeg</h5>
-							<p class="card-text">Nutmeg is a spice made from the seed of the nutmeg tree (Myristica fragrant), a native Indonesian evergreen tree that is the source of two popular spices.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-lg-4">
-					<div class="card">
-						<img src="{{ asset('assets/images/product3.jpeg') }}" class="card-img-top" height="300" alt="Product image 3" data-mdb-toggle="modal" data-mdb-target="#productModal" />
-						<div class="card-body">
-							<h5 class="card-title fw-semibold">Cardamom</h5>
-							<p class="card-text">Cardamom is a spice made from the seed pods of various plants in the ginger family. Cardamom pods are spindle-shaped and have a triangular cross-section.</p>
-						</div>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</section>
