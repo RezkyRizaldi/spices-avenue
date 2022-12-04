@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,16 +14,31 @@ class HomeController extends Controller
     public function __invoke(Request $request): View|Factory
     {
         if (!empty($request->search)) {
-            $searchPosts = Post::latest()->filter($request->search)->get();
-
             return view('search', [
-                'posts' => Post::latest()->limit(5)->get(),
-                'searchPosts' => $searchPosts,
+                'categories' => Category::select(['name', 'slug'])->get(),
+                'posts' => Post::select(['title', 'slug'])
+                    ->limit(5)
+                    ->latest()
+                    ->get(),
+                'searchPosts' => Post::query()
+                    ->with([
+                        'category' => fn (BelongsTo $query) => $query->select(['id', 'name', 'slug']),
+                    ])
+                    ->select(['category_id', 'title', 'slug', 'image', 'body', 'published_at'])
+                    ->filter($request->search)
+                    ->latest()
+                    ->get(),
             ]);
         }
 
         return view('index', [
-            'posts' => Post::latest()->limit(12)->get(),
+            'posts' => Post::query()
+                ->with([
+                    'category' => fn (BelongsTo $query) => $query->select(['id', 'name']),
+                ])
+                ->select(['category_id', 'title', 'slug', 'image', 'published_at'])
+                ->limit(12)
+                ->get(),
         ]);
     }
 }

@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PostSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     public function run(): void
     {
-        Post::factory(25)->create();
+        Category::factory(3)->create();
     }
 }

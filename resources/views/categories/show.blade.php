@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
-@section('title', 'Post Details - ' . config('app.name'))
+@section('title', "{$category->name} - " . config('app.name'))
 
 @section('content')
-<x-blog-post />
+	<x-blog-post :$categories :$category :$posts />
 @endsection

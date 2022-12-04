@@ -14,7 +14,7 @@
 						<a href="#respond">Leave a Comment</a>
 					</li>
 					<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
-						<a href="{{ route('categories.show') }}">Artikel</a>
+						<a href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
 					</li>
 					<li class="breadcrumb-item{{ request()->routeIs('auhtors.show') ? ' active' : '' }}" {{ request()->routeIs('authors.show') ? 'aria-current="page"' : '' }}>
 						By <a href="{{ route('authors.show') }}">superadmin</a>

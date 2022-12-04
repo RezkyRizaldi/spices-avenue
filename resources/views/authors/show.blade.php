@@ -3,5 +3,5 @@
 @section('title', 'Author Details - ' . config('app.name'))
 
 @section('content')
-<x-blog-post />
+	<x-blog-post />
 @endsection
