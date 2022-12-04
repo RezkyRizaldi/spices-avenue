@@ -14,14 +14,14 @@
 				@else
 				<h2>Artikel</h2>
 				@endif
-				{{-- <p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p> --}}
 				<hr />
-				<img class="d-block mx-auto img-fluid" src="{{ asset('assets/images/blog1.jpeg') }}" alt="Blog image" />
-				<h2 class="mt-3">Insights on the Seasoning & Spices Global Market to 2030</h2>
+				@forelse ($searchPosts as $post)
+				<img class="d-block mx-auto img-fluid" src="{{ $post->image }}" alt="{{ $post->title }}" />
+				<h2 class="mt-3">{{ $post->title }}</h2>
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item">
-							<a title="Leave a Comment" href="{{ route('posts.show') . '#respond' }}">Leave a Comment</a>
+							<a title="Leave a Comment" href="{{ route('posts.show', $post->slug) . '#respond' }}">Leave a Comment</a>
 						</li>
 						<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
 							<a title="artikel" href="{{ route('categories.show') }}">Artikel</a>
@@ -32,37 +32,19 @@
 					</ol>
 				</nav>
 				<div>
-					<p class="lead">Black pepper exports increased in the first quarter of 2022 on the back of global economic recovery and the COVID-19 pandemic being brought under control, Indonesian Export Financing Agency's (LPEI's) Indonesia Eximbank (IEB) Institute stated. “The increasing demand for spice products, including black pepper, is due to the global economic recovery as the COVID-19 pandemic …</p>
-					<a href="{{ route('posts.show') }}" title="Read More">Read More <i class="fa-solid fa-angles-right"></i></a>
+					{!! $post->body !!}
+					<a href="{{ route('posts.show', $post->slug) }}" title="Read More">Read More <i class="fa-solid fa-angles-right"></i></a>
 				</div>
 				<hr />
-				<img class="d-block mx-auto img-fluid" src="{{ asset('assets/images/blog1.jpeg') }}" alt="Blog image" />
-				<h2 class="mt-3">Insights on the Seasoning & Spices Global Market to 2030</h2>
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item">
-							<a title="Leave a Comment" href="{{ route('posts.show') . '#respond' }}">Leave a Comment</a>
-						</li>
-						<li class="breadcrumb-item">
-							<a title="Artikel" href="{{ route('categories.show') }}">Artikel</a>
-						</li>
-						<li class="breadcrumb-item active" aria-current="page">
-							By <a title="superadmin" href="{{ route('authors.show') }}">superadmin</a>
-						</li>
-					</ol>
-				</nav>
-				<div>
-					<p class="lead">Black pepper exports increased in the first quarter of 2022 on the back of global economic recovery and the COVID-19 pandemic being brought under control, Indonesian Export Financing Agency's (LPEI's) Indonesia Eximbank (IEB) Institute stated. “The increasing demand for spice products, including black pepper, is due to the global economic recovery as the COVID-19 pandemic …</p>
-					<a href="{{ route('posts.show') }}">Read More <i class="fa-solid fa-angles-right"></i></a>
-				</div>
-				<hr />
+				@empty
+				<p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+				@endforelse
 			</div>
 		</div>
 		<div class="vr col-lg-1 px-0"></div>
 		<div class="col-12 col-lg-4">
 			<div class="px-3">
 				<form action="{{ route('home') }}">
-					@csrf
 					<div class="input-group">
 						<div class="form-outline">
 							<input type="search" name="search" id="search" class="form-control" value="{{ request('search') }}" />
@@ -74,20 +56,15 @@
 					</div>
 				</form>
 				<div class="my-5">
-					<h2>Pos Terbaru</h2>
+					<h2>Postingan Terbaru</h2>
 					<ul class="list-unstyled">
+						@forelse ($posts as $post)
 						<li>
-							<a title="pos" class="text-decoration-underline" href="{{ route('posts.show') }}">Black pepper exports increase as economy recovers: IEB Institute</a>
+							<a title="{{ $post->title }}" class="text-decoration-underline" href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
 						</li>
-						<li>
-							<a title="pos" class="text-decoration-underline" href="{{ route('posts.show') }}">Indonesia's Black Pepper Export Up 44.5% to US$17mn in Q1</a>
-						</li>
-						<li>
-							<a title="pos" class="text-decoration-underline" href="{{ route('posts.show') }}">Indonesia spices up global community at World Expo 2020 Dubai</a>
-						</li>
-						<li>
-							<a title="pos" class="text-decoration-underline" href="{{ route('posts.show') }}">Insights on the Seasoning & Spices Global Market to 2030</a>
-						</li>
+						@empty
+						<em>Tidak ada postingan terbaru untuk saat ini.</em>
+						@endforelse
 					</ul>
 				</div>
 				<div class="my-5">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeController::class)->name('home');
-Route::get('/post/detail', function () {
-    return view('posts.show');
-})->name('posts.show');
 Route::get('/category/article', function () {
     return view('categories.show');
 })->name('categories.show');
@@ -27,3 +25,4 @@ Route::get('/author/superadmin', function () {
 Route::get('/archive/april-2022', function () {
     return view('archives.show');
 })->name('archives.show');
+Route::resource('posts', PostController::class)->only(['show']);

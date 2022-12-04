@@ -139,44 +139,23 @@
 		<div class="col-12 col-lg-9">
 			<div id="blogSwiper" class="swiper">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide" data-aos="fade-in">
-						<a href="{{ route('posts.show') }}" title="Judul">
+					@php $i = 0; @endphp
+					@foreach ($posts as $post)
+					<div class="swiper-slide" data-aos="fade-in" data-aos-delay="{{ $i += 50 }}">
+						<a href="{{ route('posts.show', $post->slug) }}" title="{{ $post->title }}">
 							<div class="card bg-light">
 								<div class="bg-image hover-zoom h-100">
-									<img src="{{ asset('assets/images/blog1.jpeg') }}" class="card-img-top swiper-lazy blog_img" alt="Blog image" />
+									<img src="{{ $post->image }}" class="card-img-top swiper-lazy blog_img" alt="Blog image" />
 									<div class="swiper-lazy-preloader"></div>
 								</div>
 								<div class="card-body">
-									<h5 class="card-subtitle text-dark mb-2 fs-6">Black pepper exports increase as economy recovers: IEB Institute</h5>
-									<p class="card-text text-muted">6 April 2022 &middot; <i class="fa-solid fa-bars-staggered"></i> Artikel</p>
+									<h5 class="card-subtitle text-dark mb-2 fs-6">{{ $post->title }}</h5>
+									<p class="card-text text-muted">{{ $post->created_at->format('d M Y') }} &middot; <i class="fa-solid fa-bars-staggered"></i> Artikel</p>
 								</div>
 							</div>
 						</a>
 					</div>
-					<div class="swiper-slide" data-aos="fade-in" data-aos-delay="50">
-						<div class="card bg-light">
-							<div class="bg-image hover-zoom h-100">
-								<img src="{{ asset('assets/images/blog2.jpeg') }}" class="card-img-top swiper-lazy blog_img" alt="Blog image 2" />
-								<div class="swiper-lazy-preloader"></div>
-							</div>
-							<div class="card-body">
-								<h5 class="card-subtitle text-dark mb-2 fs-6">Indonesia spices up global community at World Expo 2020 Dubai</h5>
-								<p class="card-text text-muted">6 April 2022 &middot; <i class="fa-solid fa-bars-staggered"></i> Artikel</p>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide" data-aos="fade-in" data-aos-delay="100">
-						<div class="card bg-light">
-							<div class="bg-image hover-zoom h-100">
-								<img src="{{ asset('assets/images/blog3.jpg') }}" class="card-img-top swiper-lazy blog_img" alt="Blog image 3" />
-								<div class="swiper-lazy-preloader"></div>
-							</div>
-							<div class="card-body">
-								<h5 class="card-subtitle text-dark mb-2 fs-6">Insight of the Seasoning & Spices Global Market to 2030</h5>
-								<p class="card-text text-muted">6 April 2022 &middot; <i class="fa-solid fa-bars-staggered"></i> Artikel</p>
-							</div>
-						</div>
-					</div>
+					@endforeach
 				</div>
 				<div class="swiper-button-prev"></div>
 				<div class="swiper-button-next"></div>
