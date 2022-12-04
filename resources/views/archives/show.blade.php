@@ -3,5 +3,5 @@
 @section('title', $archivePosts->first()->date . ' - ' . config('app.name'))
 
 @section('content')
-	<x-blog-post :$archives :$archivePosts :$categories :$posts />
+	<x-blog-post :$archives :$archivePosts :$categories :$comments :$posts />
 @endsection

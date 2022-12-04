@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Team;
@@ -22,6 +23,14 @@ class HomeController extends Controller
                     ->groupBy('date')
                     ->get(),
                 'categories' => Category::select(['name', 'slug'])->get(),
+                'comments' => Comment::query()
+                    ->with([
+                        'post' => fn (BelongsTo $query) => $query->select(['id', 'title', 'slug'])
+                    ])
+                    ->select(['post_id', 'name', 'name', 'message'])
+                    ->limit(5)
+                    ->latest()
+                    ->get(),
                 'posts' => Post::select(['title', 'slug'])
                     ->limit(5)
                     ->latest()

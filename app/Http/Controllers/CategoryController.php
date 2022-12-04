@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CategoryController extends Controller
@@ -21,6 +23,14 @@ class CategoryController extends Controller
             'category' => $category->load([
                 'posts' => fn (HasMany $query) => $query->select(['category_id', 'author_id', 'title', 'slug', 'image', 'body', 'published_at']),
             ]),
+            'comments' => Comment::query()
+                ->with([
+                    'post' => fn (BelongsTo $query) => $query->select(['id', 'title', 'slug'])
+                ])
+                ->select(['post_id', 'name', 'name', 'message'])
+                ->limit(5)
+                ->latest()
+                ->get(),
             'posts' => Post::select(['title', 'slug'])
                 ->limit(5)
                 ->latest()

@@ -42,35 +42,52 @@
 				<section id="respond">
 					<h3>Leave a Comment</h3>
 					<p>Your email address will not be published.
-					<form action="" method="POST">
+					@if (session()->has('success'))
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							{{ session()->get('success') }}
+							<button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+						</div>
+					@endif
+					<form action="{{ route('comments.store') }}" method="POST">
 						@csrf
-						<div class="form-outline mb-4">
-							<textarea class="form-control" id="message" rows="8"></textarea>
-							<label class="form-label" for="message">Message</label>
+						<input type="hidden" name="post_id" value="{{ $post->id }}" />
+						<div class="mb-3 pb-1">
+							<div class="form-outline">
+								<textarea class="form-control @error('message') is-invalid @enderror" name="message" value="{{ old('message') }}" id="message" rows="8"></textarea>
+								<label class="form-label" for="message">Message</label>
+								@error('message')
+									<div class="invalid-feedback">{{ $message }}</div>
+								@enderror
+							</div>
 						</div>
 						<div class="row gap-3 gap-lg-0 mb-4">
 							<div class="col-12 col-lg-4">
 								<div class="form-outline">
-									<input type="text" id="name" class="form-control" required />
+									<input type="text" name="name" value="{{ old('name') }}" id="name" class="form-control @error('name') is-invalid @enderror" />
 									<label class="form-label" for="name">Name</label>
+									@error('name')
+										<div class="invalid-feedback">{{ $message }}</div>
+									@enderror
 								</div>
 							</div>
 							<div class="col-12 col-lg-4">
 								<div class="form-outline">
-									<input type="email" id="email" class="form-control" required />
+									<input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control @error('email') is-invalid @enderror" />
 									<label class="form-label" for="email">Email</label>
+									@error('email')
+										<div class="invalid-feedback">{{ $message }}</div>
+									@enderror
 								</div>
 							</div>
 							<div class="col-12 col-lg-4">
 								<div class="form-outline">
-									<input type="url" id="website" class="form-control" />
+									<input type="url" name="website" value="{{ old('website') }}" id="website" class="form-control @error('website') is-invalid @enderror" />
 									<label class="form-label" for="website">Website</label>
+									@error('website')
+										<div class="invalid-feedback">{{ $message }}</div>
+									@enderror
 								</div>
 							</div>
-						</div>
-						<div class="form-check d-flex align-items-center mb-4">
-							<input class="form-check-input me-2" type="checkbox" id="checkbox" />
-							<label class="form-check-label" for="checkbox">Save my name, email, and website in this browser for the next time I comment.</label>
 						</div>
 						<button type="submit" class="btn btn-primary mb-4" title="Post Comment">Post Comment <i class="fa-solid fa-angles-right"></i></button>
 					</form>

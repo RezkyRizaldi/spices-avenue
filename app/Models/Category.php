@@ -10,8 +10,16 @@ class Category extends Model
 {
     use HasFactory;
 
+    /**
+     *
+     * @var array<int, string>
+     */
     protected $fillable = ['name', 'slug'];
 
+    /**
+     *
+     * @var array<string, string>
+     */
     protected $casts = [
         'created_at' => 'datetime:d-m-Y',
         'updated_at' => 'datetime:d-m-Y',

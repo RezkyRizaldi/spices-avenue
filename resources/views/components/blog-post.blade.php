@@ -113,7 +113,7 @@
 						</div>
 						<hr />
 					@empty
-						<p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+						<p>Tidak ada data yang sesuai dengan istilah pencarian Anda. Silakan coba lagi dengan kata kunci yang berbeda.</p>
 					@endforelse
 				@endif
 			</div>
@@ -146,7 +146,25 @@
 				</div>
 				<div class="my-5">
 					<h2>Komentar Terbaru</h2>
-					<em>No comments to show.</em>
+					<ul class="list-group list-group-light">
+						@forelse ($comments as $comment)
+							<li class="list-group-item">
+								<figure>
+									<blockquote class="blockquote">
+										<p>{{ Str::limit($comment->message, 100, '...') }}</p>
+									</blockquote>
+									<figcaption class="blockquote-footer">
+										{{ $comment->name }} in
+										<a href="{{ route('posts.show', $comment->post->slug) }}" title="{{ $comment->post->title }}">
+											<cite>{{ Str::limit($comment->post->title, 40, '...') }}</cite>
+										</a>
+									</figcaption>
+								</figure>
+							</li>
+						@empty
+							<em>Tidak ada komentar terbaru untuk saat ini.</em>
+						@endforelse
+					</ul>
 				</div>
 				<div class="my-5">
 					<h2>Arsip</h2>

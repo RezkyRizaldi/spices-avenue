@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Product extends Model
+class Comment extends Model
 {
     use HasFactory;
 
@@ -13,7 +14,7 @@ class Product extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name', 'slug', 'description', 'image'];
+    protected $fillable = ['post_id', 'name', 'email', 'website', 'message'];
 
     /**
      *
@@ -24,8 +25,8 @@ class Product extends Model
         'updated_at' => 'datetime:d-m-Y',
     ];
 
-    public function getRouteKeyName(): string
+    public function post(): BelongsTo
     {
-        return 'slug';
+        return $this->belongsTo(Post::class);
     }
 }

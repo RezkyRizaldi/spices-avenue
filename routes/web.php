@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -27,3 +28,4 @@ Route::resource('authors', AuthorController::class)->only(['show']);
 Route::resource('posts', PostController::class)->only(['show']);
 Route::resource('products', ProductController::class);
 Route::resource('teams', TeamController::class);
+Route::resource('comments', CommentController::class)->only(['store']);
