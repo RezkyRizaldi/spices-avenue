@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Product;
+use App\Models\Team;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -42,6 +43,10 @@ class HomeController extends Controller
                 ->limit(12)
                 ->get(),
             'products' => Product::select(['name', 'description', 'image'])
+                ->limit(3)
+                ->latest()
+                ->get(),
+            'teams' => Team::select(['name', 'position', 'image'])
                 ->limit(3)
                 ->latest()
                 ->get(),

@@ -161,36 +161,19 @@
 		<div class="p-lg-5">
 			<h2 class="text-uppercase mb-4 text-center" data-aos="fade-in" data-aos-duration="1000">Our Team</h2>
 			<div class="row">
-				<div class="col-12 col-lg-4">
-					<div class="bg-image hover-overlay rounded mb-4 mb-lg-0" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="100">
-						<img src="{{ asset('assets/images/team.jpeg') }}" class="img-fluid" alt="Team image" />
-						<div class="mask bg-dark"></div>
-						<div class="position-absolute bottom-0 start-0 text-light p-4">
-							<h5 class="mb-0 fw-bold text_shadow">Andrew Cameron</h5>
-							<p class="mb-0 text_shadow">Founder</p>
+				@php $i = 0; @endphp
+				@foreach ($teams as $team)
+					<div class="col-12 col-lg-4">
+						<div class="bg-image hover-overlay rounded mb-4 mb-lg-0" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="{{ $i += 100 }}">
+							<img src="{{ $team->image }}" class="img-fluid" alt="{{ $team->name }}" />
+							<div class="mask bg-dark"></div>
+							<div class="position-absolute bottom-0 start-0 text-light p-4">
+								<h5 class="mb-0 fw-bold text_shadow">{{ $team->name }}</h5>
+								<p class="mb-0 text_shadow">{{ $team->position }}</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-12 col-lg-4">
-					<div class="bg-image hover-overlay rounded mb-4 mb-lg-0" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200">
-						<img src="{{ asset('assets/images/team2.jpeg') }}" class="img-fluid" alt="Team image 2" />
-						<div class="mask bg-dark"></div>
-						<div class="position-absolute bottom-0 start-0 text-light p-4">
-							<h5 class="mb-0 fw-bold text_shadow">Amelia Margaret</h5>
-							<p class="mb-0 text_shadow">Co-Founder</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-lg-4">
-					<div class="bg-image hover-overlay rounded" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-						<img src="{{ asset('assets/images/team3.jpeg') }}" class="img-fluid" alt="Team image 3" />
-						<div class="mask bg-dark"></div>
-						<div class="position-absolute bottom-0 start-0 text-light p-4">
-							<h5 class="mb-0 fw-bold text_shadow">Robert Longdon</h5>
-							<p class="mb-0 text_shadow">Product Manager</p>
-						</div>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</section>
