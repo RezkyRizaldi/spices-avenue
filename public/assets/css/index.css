@@ -1,6 +1,7 @@
 :root {
 	--mdb-success: #5fac00;
 	--mdb-success-rgb: 95, 172, 0;
+	--fa-li-margin: 1.5em;
 }
 
 body {

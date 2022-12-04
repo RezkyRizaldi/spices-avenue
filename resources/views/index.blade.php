@@ -3,6 +3,22 @@
 @section('title', config('app.name'))
 
 @section('content')
+	@foreach ($products as $product)
+		<div class="modal fade" id="productModal{{ $loop->iteration }}" tabindex="-1" aria-labelledby="modalTitle{{ $loop->iteration }}" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="false">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="modalTitle{{ $loop->iteration }}">{{ $product->name }}</h5>
+						<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<img src="{{ $product->image }}" class="w-100 mb-3 img-thumbnail" alt="{{ $product->name }}" />
+						<p class="text-muted">{{ $product->description }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	@endforeach
 	<section id="hero" class="p-lg-5" data-aos="fade-in">
 		<div id="heroContainer" class="container-fluid p-4 p-lg-5">
 			<div id="heroWrapper">
@@ -21,7 +37,7 @@
 				</div>
 			</div>
 			<div class="col-lg-7 flex-shrink-0">
-				<img class="ms-auto d-block mw-100 object_cover" src="{{ asset('assets/images/about1.jpg') }}" alt="About section image" data-aos="fade-left" data-aos-duration="1500" />
+				<img class="mx-auto ms-lg-auto d-block mw-100 object_cover" src="{{ asset('assets/images/about1.jpg') }}" alt="About section image" data-aos="fade-left" data-aos-duration="1500" />
 			</div>
 		</div>
 	</section>
@@ -101,7 +117,7 @@
 			<p class="fs-6 text-muted col-lg-5 lead mx-auto mb-5">Learn more about our product. You can see our product here, click to see more detail about our product.</p>
 			<div class="row">
 				@foreach ($products as $product)
-					<div class="col-12 col-lg-4">
+					<div class="col-12 col-md-6 col-lg-4">
 						<div class="card mb-4 mb-lg-0">
 							<img src="{{ $product->image }}" class="card-img-top" height="300" alt="{{ $product->name }}" data-mdb-toggle="modal" data-mdb-target="#productModal{{ $loop->iteration }}" />
 							<div class="card-body">
@@ -163,7 +179,7 @@
 			<div class="row">
 				@php $i = 0; @endphp
 				@foreach ($teams as $team)
-					<div class="col-12 col-lg-4">
+					<div class="col-12 col-md-6 col-lg-4">
 						<div class="bg-image hover-overlay rounded mb-4 mb-lg-0" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="{{ $i += 100 }}">
 							<img src="{{ $team->image }}" class="img-fluid" alt="{{ $team->name }}" />
 							<div class="mask bg-dark"></div>

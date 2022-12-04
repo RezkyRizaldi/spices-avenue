@@ -12,6 +12,10 @@ const swiper = new Swiper("#blogSwiper", {
 			slidesPerGroup: 1,
 		},
 		640: {
+			slidesPerView: 2,
+			slidesPerGroup: 2,
+		},
+		992: {
 			slidesPerView: 3,
 			slidesPerGroup: 3,
 		},
