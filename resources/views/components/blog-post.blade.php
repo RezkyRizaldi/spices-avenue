@@ -8,9 +8,9 @@
 						<img class="rounded-circle" width="150" height="150" src="{{ $author->image }}" alt="{{ $author->name }}" />
 					</div>
 				@elseif (request()->routeIs('archives.show'))
-					<h2>Archive: {{ $archivePosts->first()->date }}</h2>
+					<h2>Arsip: {{ $archivePosts->first()->date }}</h2>
 				@elseif (request()->routeIs('home') && !empty(request('search')))
-					<h2>Search result for: {{ request('search') }}</h2>
+					<h2>Hasil pencarian untuk: {{ request('search') }}</h2>
 				@else
 					<h2>{{ $category->name }}</h2>
 				@endif
@@ -22,7 +22,7 @@
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a title="Leave a Comment" href="{{ route('posts.show', $post->slug) . '#respond' }}">Leave a Comment</a>
+									<a title="Tinggalkan Komentar" href="{{ route('posts.show', $post->slug) . '#respond' }}">Tinggalkan Komentar</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
 									<a title="{{ $post->category->name }}" href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
@@ -33,12 +33,12 @@
 							</ol>
 						</nav>
 						<div>
-							{!! $post->body !!}
-							<a href="{{ route('posts.show', $post->slug) }}" title="Read More">Read More <i class="fa-solid fa-angles-right"></i></a>
+							{!! $post->excerpt !!}
+							<a href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
-						<p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+						<p>Tidak ada data yang sesuai dengan istilah pencarian Anda. Silakan coba lagi dengan kata kunci yang berbeda.</p>
 					@endforelse
 				@elseif (request()->routeIs('categories.show'))
 					@forelse ($category->posts as $post)
@@ -47,7 +47,7 @@
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a title="Leave a Comment" href="{{ route('posts.show', $post->slug) . '#respond' }}">Leave a Comment</a>
+									<a title="Tinggalkan Komentar" href="{{ route('posts.show', $post->slug) . '#respond' }}">Tinggalkan Komentar</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
 									<a title="{{ $post->category->name }}" href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
@@ -58,12 +58,12 @@
 							</ol>
 						</nav>
 						<div>
-							{!! $post->body !!}
-							<a href="{{ route('posts.show', $post->slug) }}" title="Read More">Read More <i class="fa-solid fa-angles-right"></i></a>
+							{!! $post->excerpt !!}
+							<a href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
-						<p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+						<p>Tidak ada data yang sesuai dengan istilah pencarian Anda. Silakan coba lagi dengan kata kunci yang berbeda.</p>
 					@endforelse
 				@elseif (request()->routeIs('authors.show'))
 					@forelse ($author->posts as $post)
@@ -72,7 +72,7 @@
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a title="Leave a Comment" href="{{ route('posts.show', $post->slug) . '#respond' }}">Leave a Comment</a>
+									<a title="Tinggalkan Komentar" href="{{ route('posts.show', $post->slug) . '#respond' }}">Tinggalkan Komentar</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
 									<a title="{{ $post->category->name }}" href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
@@ -83,12 +83,12 @@
 							</ol>
 						</nav>
 						<div>
-							{!! $post->body !!}
-							<a href="{{ route('posts.show', $post->slug) }}" title="Read More">Read More <i class="fa-solid fa-angles-right"></i></a>
+							{!! $post->excerpt !!}
+							<a href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
-						<p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+						<p>Tidak ada data yang sesuai dengan istilah pencarian Anda. Silakan coba lagi dengan kata kunci yang berbeda.</p>
 					@endforelse
 				@else
 					@forelse ($searchPosts as $post)
@@ -97,7 +97,7 @@
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a title="Leave a Comment" href="{{ route('posts.show', $post->slug) . '#respond' }}">Leave a Comment</a>
+									<a title="Tinggalkan Komentar" href="{{ route('posts.show', $post->slug) . '#respond' }}">Tinggalkan Komentar</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
 									<a title="{{ $post->category->name }}" href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
@@ -108,8 +108,8 @@
 							</ol>
 						</nav>
 						<div>
-							{!! $post->body !!}
-							<a href="{{ route('posts.show', $post->slug) }}" title="Read More">Read More <i class="fa-solid fa-angles-right"></i></a>
+							{!! $post->excerpt !!}
+							<a href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
@@ -125,7 +125,7 @@
 					<div class="input-group">
 						<div class="form-outline">
 							<input type="search" name="search" id="search" class="form-control" value="{{ request('search') }}" />
-							<label class="form-label" for="search">Search</label>
+							<label class="form-label" for="search">Cari</label>
 						</div>
 						<button type="submit" class="btn btn-primary">
 							<i class="fas fa-search"></i>

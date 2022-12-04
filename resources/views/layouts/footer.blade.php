@@ -11,13 +11,13 @@
 								<span class="fa-li">
 									<i class="fa-regular fa-clock"></i>
 								</span>
-								Office Hours: 9AM - 6PM
+								Jam Kerja: 09:00 WIB - 18:00 WIB
 							</li>
 							<li>
 								<span class="fa-li">
 									<i class="fa-solid fa-square-phone"></i>
 								</span>
-								+62 1334 5678
+								+628913345678
 							</li>
 							<li>
 								<span class="fa-li">

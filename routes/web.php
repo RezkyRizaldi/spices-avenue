@@ -26,6 +26,4 @@ Route::get('/archives/{archive}', [ArchiveController::class, 'show'])->name('arc
 Route::resource('categories', CategoryController::class)->only(['show']);
 Route::resource('authors', AuthorController::class)->only(['show']);
 Route::resource('posts', PostController::class)->only(['show']);
-Route::resource('products', ProductController::class);
-Route::resource('teams', TeamController::class);
 Route::resource('comments', CommentController::class)->only(['store']);

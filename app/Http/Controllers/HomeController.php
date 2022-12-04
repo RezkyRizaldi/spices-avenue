@@ -19,28 +19,33 @@ class HomeController extends Controller
         if (!empty($request->search)) {
             return view('search', [
                 'archives' => Post::select('title', 'slug', 'published_at')
-                    ->selectRaw("DATE_FORMAT(published_at, '%M %Y') as date, DATE_FORMAT(published_at, '%M-%Y') as slug, YEAR(published_at) as year, MONTH(published_at) as month")
+                    ->selectRaw(
+                        "DATE_FORMAT(published_at, '%M %Y') as date,
+                        DATE_FORMAT(published_at, '%M-%Y') as slug,
+                        YEAR(published_at) as year,
+                        MONTH(published_at) as month"
+                    )
                     ->groupBy('date')
                     ->get(),
-                'categories' => Category::select(['name', 'slug'])->get(),
+                'categories' => Category::select('name', 'slug')->get(),
                 'comments' => Comment::query()
                     ->with([
-                        'post' => fn (BelongsTo $query) => $query->select(['id', 'title', 'slug'])
+                        'post' => fn (BelongsTo $query) => $query->select('id', 'title', 'slug')
                     ])
-                    ->select(['post_id', 'name', 'name', 'message'])
+                    ->select('post_id', 'name', 'message')
                     ->limit(5)
                     ->latest()
                     ->get(),
-                'posts' => Post::select(['title', 'slug'])
+                'posts' => Post::select('title', 'slug')
                     ->limit(5)
                     ->latest()
                     ->get(),
                 'searchPosts' => Post::query()
                     ->with([
-                        'author' => fn (BelongsTo $query) => $query->select(['id', 'name', 'slug']),
-                        'category' => fn (BelongsTo $query) => $query->select(['id', 'name', 'slug']),
+                        'author' => fn (BelongsTo $query) => $query->select('id', 'name', 'slug'),
+                        'category' => fn (BelongsTo $query) => $query->select('id', 'name', 'slug'),
                     ])
-                    ->select(['category_id', 'author_id', 'title', 'slug', 'image', 'body', 'published_at'])
+                    ->select('category_id', 'author_id', 'title', 'slug', 'image', 'excerpt', 'published_at')
                     ->filter($request->search)
                     ->latest()
                     ->get(),
@@ -51,16 +56,16 @@ class HomeController extends Controller
         return view('index', [
             'posts' => Post::query()
                 ->with([
-                    'category' => fn (BelongsTo $query) => $query->select(['id', 'name']),
+                    'category' => fn (BelongsTo $query) => $query->select('id', 'name'),
                 ])
-                ->select(['category_id', 'author_id', 'title', 'slug', 'image', 'published_at'])
+                ->select('category_id', 'author_id', 'title', 'slug', 'image', 'published_at')
                 ->limit(12)
                 ->get(),
-            'products' => Product::select(['name', 'description', 'image'])
+            'products' => Product::select('name', 'description', 'image')
                 ->limit(3)
                 ->latest()
                 ->get(),
-            'teams' => Team::select(['name', 'position', 'image'])
+            'teams' => Team::select('name', 'position', 'image')
                 ->limit(3)
                 ->latest()
                 ->get(),

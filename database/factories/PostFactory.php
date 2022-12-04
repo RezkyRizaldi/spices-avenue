@@ -18,15 +18,17 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $body = collect(fake()->paragraphs(mt_rand(5, 10)))
+            ->map(fn (string $p) => "<p class=\"lead\"/>{$p}</p>");
+
         return [
             'category_id' => fake()->numberBetween(1, Category::count()),
             'author_id' => fake()->numberBetween(1, Author::count()),
-            'title' => fake()->sentence(mt_rand(2, 8)),
+            'title' => fake()->sentence(mt_rand(2, 6)),
             'slug' => fake()->unique()->slug(),
             'image' => fake()->imageUrl(640, 480, 'herbs'),
-            'body' => collect(fake()->paragraphs(mt_rand(5, 10)))
-                ->map(fn (string $p) => "<p class=\"lead\"/>{$p}</p>")
-                ->implode(''),
+            'excerpt' => $body->slice(0, 3)->implode(''),
+            'body' => $body->implode(''),
         ];
     }
 }

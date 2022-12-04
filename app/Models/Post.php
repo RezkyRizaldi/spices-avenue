@@ -18,7 +18,16 @@ class Post extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['category_id', 'title', 'slug', 'image', 'body'];
+    protected $fillable = [
+        'category_id',
+        'author_id',
+        'title',
+        'slug',
+        'image',
+        'excerpt',
+        'body',
+        'published_at',
+    ];
 
     /**
      *
@@ -57,7 +66,12 @@ class Post extends Model
 
     public function scopeFilter(Builder $query, ?string $filter)
     {
-        $query->when($filter ?? false, fn (Builder $query, string $filter) => $query->where('title', 'like', "%{$filter}%"));
+        $query->when(
+            $filter ?? false,
+            fn (Builder $query, string $filter) =>
+            $query->where('title', 'like', "%{$filter}%")
+                ->orWhere('body', 'like', "%{$filter}%"),
+        );
     }
 
     public function category(): BelongsTo
