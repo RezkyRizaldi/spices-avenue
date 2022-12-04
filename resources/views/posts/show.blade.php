@@ -11,13 +11,13 @@
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">
-						<a href="#respond">Leave a Comment</a>
+						<a href="#respond" title="Leave a Comment">Leave a Comment</a>
 					</li>
 					<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
-						<a href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
+						<a href="{{ route('categories.show', $post->category->slug) }}" title="{{ $post->category->name }}">{{ $post->category->name }}</a>
 					</li>
 					<li class="breadcrumb-item{{ request()->routeIs('auhtors.show') ? ' active' : '' }}" {{ request()->routeIs('authors.show') ? 'aria-current="page"' : '' }}>
-						By <a href="{{ route('authors.show') }}">superadmin</a>
+						By <a href="{{ route('authors.show', $post->author->slug) }}" title="{{ $post->author->name }}">{{ $post->author->name }}</a>
 					</li>
 				</ol>
 			</nav>
@@ -26,13 +26,13 @@
 				<hr />
 				<div class="d-flex my-4 justify-content-{{ !empty($post->previous()) ? 'between' : 'end' }}">
 					@if (!empty($post->previous()))
-					<a href="{{ route('posts.show', $post->previous()->slug) }}">
+					<a href="{{ route('posts.show', $post->previous()->slug) }}" title="{{ $post->previous()->title }}">
 						<i class="fa-solid fa-arrow-left me-2"></i>
 						Previous Post
 					</a>
 					@endif
 					@if (!empty($post->next()))
-					<a href="{{ route('posts.show', $post->next()->slug) }}">
+					<a href="{{ route('posts.show', $post->next()->slug) }}" title="{{ $post->next()->title }}">
 						Next Post
 						<i class="fa-solid fa-arrow-right ms-2"></i>
 					</a>
@@ -72,7 +72,7 @@
 							<input class="form-check-input me-2" type="checkbox" id="checkbox" />
 							<label class="form-check-label" for="checkbox">Save my name, email, and website in this browser for the next time I comment.</label>
 						</div>
-						<button type="submit" class="btn btn-primary mb-4">Post Comment <i class="fa-solid fa-angles-right"></i></button>
+						<button type="submit" class="btn btn-primary mb-4" title="Post Comment">Post Comment <i class="fa-solid fa-angles-right"></i></button>
 					</form>
 				</section>
 			</div>

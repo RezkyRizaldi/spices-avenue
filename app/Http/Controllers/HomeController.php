@@ -22,9 +22,10 @@ class HomeController extends Controller
                     ->get(),
                 'searchPosts' => Post::query()
                     ->with([
+                        'author' => fn (BelongsTo $query) => $query->select(['id', 'name', 'slug']),
                         'category' => fn (BelongsTo $query) => $query->select(['id', 'name', 'slug']),
                     ])
-                    ->select(['category_id', 'title', 'slug', 'image', 'body', 'published_at'])
+                    ->select(['category_id', 'author_id', 'title', 'slug', 'image', 'body', 'published_at'])
                     ->filter($request->search)
                     ->latest()
                     ->get(),
@@ -36,7 +37,7 @@ class HomeController extends Controller
                 ->with([
                     'category' => fn (BelongsTo $query) => $query->select(['id', 'name']),
                 ])
-                ->select(['category_id', 'title', 'slug', 'image', 'published_at'])
+                ->select(['category_id', 'author_id', 'title', 'slug', 'image', 'published_at'])
                 ->limit(12)
                 ->get(),
         ]);

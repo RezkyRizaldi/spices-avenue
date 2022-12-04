@@ -41,14 +41,6 @@ section#gallery .gallery_img {
 	min-height: 100%;
 }
 
-section#products .products_img {
-	height: 300px;
-}
-
-section#blog .blog_img {
-	height: 300px;
-}
-
 section#section .mask {
 	--mdb-bg-opacity: 0.4;
 }

@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Author;
 use App\Models\Category;
 use App\Models\Post;
 use Closure;
@@ -11,6 +12,7 @@ use Illuminate\View\Component;
 
 class BlogPost extends Component
 {
+    public Author $author;
     public Collection $categories;
     public Category $category;
     public Collection $posts;
@@ -24,8 +26,9 @@ class BlogPost extends Component
      * @param  \Illuminate\Database\Eloquent\Collection<Post>  $searchPosts
      * @return void
      */
-    public function __construct(Collection $categories, Category $category, Collection $posts, Collection $searchPosts)
+    public function __construct(Author $author, Collection $categories, Category $category, Collection $posts, Collection $searchPosts)
     {
+        $this->author = $author;
         $this->categories = $categories;
         $this->category = $category;
         $this->posts = $posts;

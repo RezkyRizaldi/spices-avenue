@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
-@section('title', 'Author Details - ' . config('app.name'))
+@section('title', "{$author->name} - " . config('app.name'))
 
 @section('content')
-	<x-blog-post />
+	<x-blog-post :$author :$categories :$posts />
 @endsection

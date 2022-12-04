@@ -12,6 +12,7 @@ class PostController extends Controller
     public function show(Post $post): View|Factory
     {
         $post->load([
+            'author' => fn (BelongsTo $query) => $query->select(['id', 'name', 'slug', 'image']),
             'category' => fn (BelongsTo $query) => $query->select(['id', 'name', 'slug']),
         ]);
 

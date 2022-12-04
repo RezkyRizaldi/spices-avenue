@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
@@ -17,11 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeController::class)->name('home');
-Route::get('/author/superadmin', function () {
-    return view('authors.show');
-})->name('authors.show');
 Route::get('/archive/april-2022', function () {
     return view('archives.show');
 })->name('archives.show');
-Route::resource('posts', PostController::class)->only(['show']);
 Route::resource('categories', CategoryController::class)->only(['show']);
+Route::resource('authors', AuthorController::class)->only(['show']);
+Route::resource('posts', PostController::class)->only(['show']);

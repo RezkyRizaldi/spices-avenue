@@ -43,6 +43,11 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(Author::class);
+    }
+
     public function next(): Model|static|null
     {
         return $this->where('id', '>', $this->id)
