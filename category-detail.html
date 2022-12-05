@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Category Detail Page - Laravel</title>
+		<link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+			integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="./assets/css/floating-wpp.min.css" />
+		<link rel="stylesheet" href="./assets/css/index.css" />
+	</head>
+	<body>
+		<div id="whatsapp" title="WhatsApp"></div>
+		<header class="sticky-top">
+			<nav class="navbar navbar-expand-lg bg-light py-3 shadow-0">
+				<div class="container ms-lg-auto me-lg-5 text-uppercase fw-semibold">
+					<a class="navbar-brand me-0 ms-3 ms-lg-0 d-lg-none" href="./index.html" title="Home">Home</a>
+					<button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+						<i class="fas fa-bars"></i>
+					</button>
+					<div class="collapse navbar-collapse justify-content-between" id="navbar">
+						<ul class="navbar-nav">
+							<li class="nav-item ms-3 ms-lg-0">
+								<a class="nav-link" aria-current="page" href="./index.html#about" title="About">About</a>
+							</li>
+							<li class="nav-item ms-3 ms-lg-0">
+								<a class="nav-link" href="./index.html#gallery" title="Gallery">Gallery</a>
+							</li>
+							<li class="nav-item ms-3 ms-lg-0">
+								<a class="nav-link" href="./index.html#products" title="Products">Products</a>
+							</li>
+						</ul>
+						<a class="navbar-brand me-0 d-none d-lg-inline" href="./index.html" title="Home">Home</a>
+						<ul class="navbar-nav">
+							<li class="nav-item ms-3 ms-lg-0">
+								<a class="nav-link" aria-current="page" href="./index.html#blog" title="Blog">Blog</a>
+							</li>
+							<li class="nav-item ms-3 ms-lg-0">
+								<a class="nav-link" href="./index.html#team" title="Team">Team</a>
+							</li>
+							<li class="nav-item ms-3 ms-lg-0">
+								<a class="nav-link" href="./index.html#contact" title="Contact">Contact</a>
+							</li>
+						</ul>
+						<div id="socialNav" class="d-flex py-2 py-lg-0 ms-3 ms-lg-0">
+							<a class="nav-link" href="https://instagram.com/" rel="noopener noreferrer" target="_blank" title="Instagram">
+								<span class="sr-only">Instagram</span>
+								<i class="fab fa-instagram"></i>
+							</a>
+							<a class="nav-link" href="https://facebook.com/" rel="noopener noreferrer" target="_blank" title="Facebook">
+								<span class="sr-only">Facebook</span>
+								<i class="fab fa-facebook"></i>
+							</a>
+							<a class="nav-link" href="https://twitter.com/" rel="noopener noreferrer" target="_blank" title="Twitter">
+								<span class="sr-only">Twitter</span>
+								<i class="fab fa-twitter"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<article id="blogDetail" class="container-fluid py-3 p-lg-5">
+				<div class="row">
+					<div class="col-12 col-lg-7">
+						<div class="px-3">
+							<h2>Artikel</h2>
+							<hr />
+							<img class="d-block mx-auto img-fluid" src="./assets/images/blog1.jpeg" alt="Judul Blog 1" />
+							<h2 class="mt-3">Judul Blog 1</h2>
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item">
+										<a title="Tinggalkan Komentar" href="./post-detail.html#respond">Tinggalkan Komentar</a>
+									</li>
+									<li class="breadcrumb-item active" aria-current="page">
+										<a title="Artikel" href="./category-detail.html">Artikel</a>
+									</li>
+									<li class="breadcrumb-item">By <a title="superadmin" href="./author-detail.html">superadmin</a></li>
+								</ol>
+							</nav>
+							<div>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nulla aut non, quis iure temporibus tempora a quam recusandae cupiditate sint illo at reprehenderit explicabo.</p>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nulla aut non, quis iure temporibus tempora a quam recusandae cupiditate sint illo at reprehenderit explicabo.</p>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nulla aut non, quis iure temporibus tempora a quam recusandae cupiditate sint illo at reprehenderit explicabo.</p>
+								<a href="./post-detail.html" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							</div>
+							<hr />
+							<img class="d-block mx-auto img-fluid" src="./assets/images/blog2.jpeg" alt="Judul Blog 2" />
+							<h2 class="mt-3">Judul Blog 2</h2>
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item">
+										<a title="Tinggalkan Komentar" href="./post-detail.html#respond">Tinggalkan Komentar</a>
+									</li>
+									<li class="breadcrumb-item active" aria-current="page">
+										<a title="Artikel" href="./category-detail.html">Artikel</a>
+									</li>
+									<li class="breadcrumb-item">By <a title="superadmin" href="./author-detail.html">superadmin</a></li>
+								</ol>
+							</nav>
+							<div>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nulla aut non, quis iure temporibus tempora a quam recusandae cupiditate sint illo at reprehenderit explicabo.</p>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nulla aut non, quis iure temporibus tempora a quam recusandae cupiditate sint illo at reprehenderit explicabo.</p>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nulla aut non, quis iure temporibus tempora a quam recusandae cupiditate sint illo at reprehenderit explicabo.</p>
+								<a href="./post-detail.html" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							</div>
+							<hr />
+							<img class="d-block mx-auto img-fluid" src="./assets/images/blog3.jpg" alt="Judul Blog 3" />
+							<h2 class="mt-3">Judul Blog 3</h2>
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item">
+										<a title="Tinggalkan Komentar" href="./post-detail.html#respond">Tinggalkan Komentar</a>
+									</li>
+									<li class="breadcrumb-item active" aria-current="page">
+										<a title="Artikel" href="./category-detail.html">Artikel</a>
+									</li>
+									<li class="breadcrumb-item">By <a title="superadmin" href="./author-detail.html">superadmin</a></li>
+								</ol>
+							</nav>
+							<div>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nulla aut non, quis iure temporibus tempora a quam recusandae cupiditate sint illo at reprehenderit explicabo.</p>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nulla aut non, quis iure temporibus tempora a quam recusandae cupiditate sint illo at reprehenderit explicabo.</p>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nulla aut non, quis iure temporibus tempora a quam recusandae cupiditate sint illo at reprehenderit explicabo.</p>
+								<a href="./post-detail.html" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							</div>
+							<hr />
+						</div>
+					</div>
+					<div class="vr col-lg-1 px-0"></div>
+					<div class="col-12 col-lg-4">
+						<div class="px-3">
+							<form>
+								<div class="input-group">
+									<div class="form-outline">
+										<input type="search" name="search" id="search" class="form-control" />
+										<label class="form-label" for="search">Cari</label>
+									</div>
+									<button type="submit" class="btn btn-primary" title="Cari">
+										<i class="fas fa-search"></i>
+									</button>
+								</div>
+							</form>
+							<div class="my-5">
+								<h2>Postingan Terbaru</h2>
+								<ul class="list-unstyled">
+									<li>
+										<a title="Judul Blog 1" class="text-decoration-underline" href="./post-detail.html">Judul Blog 1</a>
+									</li>
+									<li>
+										<a title="Judul Blog 2" class="text-decoration-underline" href="./post-detail.html">Judul Blog 2</a>
+									</li>
+									<li>
+										<a title="Judul Blog 3" class="text-decoration-underline" href="./post-detail.html">Judul Blog 3</a>
+									</li>
+									<li>
+										<a title="Judul Blog 4" class="text-decoration-underline" href="./post-detail.html">Judul Blog 4</a>
+									</li>
+									<li>
+										<a title="Judul Blog 5" class="text-decoration-underline" href="./post-detail.html">Judul Blog 5</a>
+									</li>
+								</ul>
+							</div>
+							<div class="my-5">
+								<h2>Komentar Terbaru</h2>
+								<ul class="list-group list-group-light">
+									<li class="list-group-item">
+										<figure>
+											<blockquote class="blockquote">
+												<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis aspernatur vitae, dicta sequi, eius cupiditate dolorem ratione illum perspiciatis neque delectus, perferendis ipsum sed facere...</p>
+											</blockquote>
+											<figcaption class="blockquote-footer">
+												User in
+												<a href="./post-detail.html" title="Judul Blog 1">
+													<cite>Judul Blog 1</cite>
+												</a>
+											</figcaption>
+										</figure>
+									</li>
+								</ul>
+							</div>
+							<div class="my-5">
+								<h2>Arsip</h2>
+								<ul class="list-unstyled">
+									<li>
+										<a title="December 2022" class="text-decoration-underline" href="./archive.html">December 2022</a>
+									</li>
+									<li>
+										<a title="Januari 2023" class="text-decoration-underline" href="./archive.html">Januari 2023</a>
+									</li>
+									<li>
+										<a title="Februari 2023" class="text-decoration-underline" href="./archive.html">Februari 2023</a>
+									</li>
+								</ul>
+							</div>
+							<div class="my-5">
+								<h2>Kategori</h2>
+								<ul class="list-unstyled">
+									<li>
+										<a title="Artikel" class="text-decoration-underline" href="./category-detail.html">Artikel</a>
+									</li>
+									<li>
+										<a title="Musik" class="text-decoration-underline" href="./category-detail.html">Musik</a>
+									</li>
+									<li>
+										<a title="Olahraga" class="text-decoration-underline" href="./category-detail.html">Olahraga</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</main>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"
+			integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script type="text/javascript" src="./assets/js/floating-wpp.min.js"></script>
+		<script type="text/javascript" src="./assets/js/whatsapp.js"></script>
+		<script type="text/javascript" src="./assets/js/index.js"></script>
+	</body>
+</html>
