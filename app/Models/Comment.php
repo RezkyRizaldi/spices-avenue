@@ -11,13 +11,11 @@ class Comment extends Model
     use HasFactory;
 
     /**
-     *
      * @var array<int, string>
      */
     protected $fillable = ['post_id', 'name', 'email', 'website', 'message'];
 
     /**
-     *
      * @var array<string, string>
      */
     protected $casts = [

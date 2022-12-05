@@ -26,12 +26,11 @@ class CategoryController extends Controller
                 ->get(),
             'categories' => Category::select('name', 'slug')->get(),
             'category' => $category->load([
-                'posts' => fn (HasMany $query) =>
-                $query->select('category_id', 'author_id', 'title', 'slug', 'image', 'excerpt', 'published_at'),
+                'posts' => fn (HasMany $query) => $query->select('category_id', 'author_id', 'title', 'slug', 'image', 'excerpt', 'published_at'),
             ]),
             'comments' => Comment::query()
                 ->with([
-                    'post' => fn (BelongsTo $query) => $query->select('id', 'title', 'slug')
+                    'post' => fn (BelongsTo $query) => $query->select('id', 'title', 'slug'),
                 ])
                 ->select('post_id', 'name', 'message')
                 ->limit(5)

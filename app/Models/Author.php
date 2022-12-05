@@ -11,13 +11,11 @@ class Author extends Model
     use HasFactory;
 
     /**
-     *
      * @var array<int, string>
      */
     protected $fillable = ['name', 'slug', 'image'];
 
     /**
-     *
      * @var array<string, string>
      */
     protected $casts = [

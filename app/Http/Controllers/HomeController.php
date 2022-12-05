@@ -16,7 +16,7 @@ class HomeController extends Controller
 {
     public function __invoke(Request $request): View|Factory
     {
-        if (!empty($request->search)) {
+        if (! empty($request->search)) {
             return view('search', [
                 'archives' => Post::select('title', 'slug', 'published_at')
                     ->selectRaw(
@@ -30,7 +30,7 @@ class HomeController extends Controller
                 'categories' => Category::select('name', 'slug')->get(),
                 'comments' => Comment::query()
                     ->with([
-                        'post' => fn (BelongsTo $query) => $query->select('id', 'title', 'slug')
+                        'post' => fn (BelongsTo $query) => $query->select('id', 'title', 'slug'),
                     ])
                     ->select('post_id', 'name', 'message')
                     ->limit(5)

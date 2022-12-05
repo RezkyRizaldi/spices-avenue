@@ -12,12 +12,19 @@ use Illuminate\View\Component;
 class BlogPost extends Component
 {
     public Collection $archives;
+
     public Collection $archivePosts;
+
     public Author $author;
+
     public Collection $categories;
+
     public Category $category;
+
     public Collection $comments;
+
     public Collection $posts;
+
     public Collection $searchPosts;
 
     /**

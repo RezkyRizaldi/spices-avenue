@@ -26,13 +26,12 @@ class AuthorController extends Controller
                 ->groupBy('date')
                 ->get(),
             'author' => $author->load([
-                'posts' => fn (HasMany $query) =>
-                $query->select('category_id', 'author_id', 'title', 'slug', 'image', 'excerpt', 'published_at'),
+                'posts' => fn (HasMany $query) => $query->select('category_id', 'author_id', 'title', 'slug', 'image', 'excerpt', 'published_at'),
             ]),
             'categories' => Category::select('name', 'slug')->get(),
             'comments' => Comment::query()
                 ->with([
-                    'post' => fn (BelongsTo $query) => $query->select('id', 'title', 'slug')
+                    'post' => fn (BelongsTo $query) => $query->select('id', 'title', 'slug'),
                 ])
                 ->select('post_id', 'name', 'message')
                 ->limit(5)

@@ -15,7 +15,6 @@ class Post extends Model
     use HasFactory;
 
     /**
-     *
      * @var array<int, string>
      */
     protected $fillable = [
@@ -30,13 +29,11 @@ class Post extends Model
     ];
 
     /**
-     *
      * @var array<int, string>
      */
     protected $appends = ['date'];
 
     /**
-     *
      * @var array<string, string>
      */
     protected $casts = [
@@ -68,8 +65,7 @@ class Post extends Model
     {
         $query->when(
             $filter ?? false,
-            fn (Builder $query, string $filter) =>
-            $query->where('title', 'like', "%{$filter}%")
+            fn (Builder $query, string $filter) => $query->where('title', 'like', "%{$filter}%")
                 ->orWhere('body', 'like', "%{$filter}%"),
         );
     }
