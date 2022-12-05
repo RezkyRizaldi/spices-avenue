@@ -127,7 +127,7 @@
 							<input type="search" name="search" id="search" class="form-control" value="{{ request('search') }}" />
 							<label class="form-label" for="search">Cari</label>
 						</div>
-						<button type="submit" class="btn btn-primary">
+						<button type="submit" class="btn btn-primary" aria-label="Search form">
 							<i class="fas fa-search"></i>
 						</button>
 					</div>

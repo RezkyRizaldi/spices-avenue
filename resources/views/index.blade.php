@@ -48,7 +48,7 @@
 			<div class="col-lg-3 pb-4 pb-lg-0">
 				<a href="{{ asset('assets/images/gallery1.jpeg') }}" data-lightbox="gallery1" data-title="Spices" data-alt="Spices Image">
 					<div class="bg-image hover-zoom shadow-1-strong rounded h-100">
-						<img loading="lazy" src="{{ asset('assets/images/gallery1.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 1" />
+						<img src="{{ asset('assets/images/gallery1.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 1" />
 					</div>
 				</a>
 			</div>
@@ -57,14 +57,14 @@
 					<div class="col-lg-8 pb-4 pb-lg-0">
 						<a href="{{ asset('assets/images/gallery2.jpg') }}" data-lightbox="gallery2" data-title="Spices" data-alt="Spices Image">
 							<div class="bg-image hover-zoom shadow-1-strong rounded gallery_sm">
-								<img loading="lazy" src="{{ asset('assets/images/gallery2.jpg') }}" class="w-100 gallery_img" alt="Gallery image 2" />
+								<img src="{{ asset('assets/images/gallery2.jpg') }}" class="w-100 gallery_img" alt="Gallery image 2" />
 							</div>
 						</a>
 					</div>
 					<div class="col-lg-4 pb-4 pb-lg-0">
 						<a href="{{ asset('assets/images/gallery3.jpeg') }}" data-lightbox="gallery3" data-title="Spices" data-alt="Spices Image">
 							<div class="bg-image hover-zoom shadow-1-strong rounded gallery_sm">
-								<img loading="lazy" src="{{ asset('assets/images/gallery3.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 3" />
+								<img src="{{ asset('assets/images/gallery3.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 3" />
 							</div>
 						</a>
 					</div>
@@ -73,21 +73,21 @@
 					<div class="col-lg pb-4 pb-lg-0">
 						<a href="{{ asset('assets/images/gallery4.jpeg') }}" data-lightbox="gallery4" data-title="Spices" data-alt="Spices Image">
 							<div class="bg-image hover-zoom shadow-1-strong rounded h-100">
-								<img loading="lazy" src="{{ asset('assets/images/gallery4.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 4" />
+								<img src="{{ asset('assets/images/gallery4.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 4" />
 							</div>
 						</a>
 					</div>
 					<div class="col-lg pb-4 pb-lg-0">
 						<a href="{{ asset('assets/images/gallery5.jpeg') }}" data-lightbox="gallery5" data-title="Spices" data-alt="Spices Image">
 							<div class="bg-image hover-zoom shadow-1-strong rounded h-100">
-								<img loading="lazy" src="{{ asset('assets/images/gallery5.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 5" />
+								<img src="{{ asset('assets/images/gallery5.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 5" />
 							</div>
 						</a>
 					</div>
 					<div class="col-lg">
 						<a href="{{ asset('assets/images/gallery6.jpg') }}" data-lightbox="gallery6" data-title="Spices" data-alt="Spices Image">
 							<div class="bg-image hover-zoom shadow-1-strong rounded h-100">
-								<img loading="lazy" src="{{ asset('assets/images/gallery6.jpg') }}" class="w-100 gallery_img" alt="Gallery image 6" />
+								<img src="{{ asset('assets/images/gallery6.jpg') }}" class="w-100 gallery_img" alt="Gallery image 6" />
 							</div>
 						</a>
 					</div>
@@ -215,7 +215,7 @@
 				<div class="card border border-1 shadow-0" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
 					<div class="card-body">
 						<i class="fa-brands fa-xl fa-whatsapp text-success mb-2"></i>
-						<a href="https://wa.me/" target="_blank" title="WhatsApp">
+						<a href="https://wa.me/" rel="noopener noreferrer" target="_blank" title="WhatsApp">
 							<h5 class="card-title fw-bold">WhatsApp</h5>
 						</a>
 						<h6 class="card-subtitle mb-2 text-muted">(+62) 1334 5678</h6>
