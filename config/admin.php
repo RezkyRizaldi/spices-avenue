@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>' . env('APP_NAME') . ' Admin</b>',
+    'logo' => '<b>'.env('APP_NAME').' Admin</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
     | Html title for all pages.
     |
     */
-    'title' => env('APP_NAME') . ' Admin',
+    'title' => env('APP_NAME').' Admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -223,7 +223,7 @@ return [
          * or specific method to path like: get:admin/auth/logs.
          */
         'except' => [
-            env('ADMIN_ROUTE_PREFIX', 'admin') . '/auth/logs*',
+            env('ADMIN_ROUTE_PREFIX', 'admin').'/auth/logs*',
         ],
     ],
 

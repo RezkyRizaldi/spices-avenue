@@ -23,6 +23,7 @@ class ArchiveController extends Controller
                 ->get(),
             'archivePosts' => Post::whereYear('published_at', explode('-', $archive)[1])
                 ->select('category_id', 'author_id', 'title', 'slug', 'image', 'excerpt', 'published_at')
+                ->latest()
                 ->get(),
             'categories' => Category::select('name', 'slug')->get(),
             'comments' => Comment::query()

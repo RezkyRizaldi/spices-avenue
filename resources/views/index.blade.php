@@ -119,10 +119,10 @@
 				@foreach ($products as $product)
 					<div class="col-12 col-md-6 col-lg-4">
 						<div class="card mb-4 mb-lg-0">
-							<img src="{{ $product->image }}" class="card-img-top" height="300" alt="{{ $product->name }}" data-mdb-toggle="modal" data-mdb-target="#productModal{{ $loop->iteration }}" />
+							<img src="{{ !empty($product->image) ? asset('storage') . "/{$product->image}" : asset('assets/images/default-image.png') }}" class="card-img-top" height="300" alt="{{ $product->name }}" data-mdb-toggle="modal" data-mdb-target="#productModal{{ $loop->iteration }}" />
 							<div class="card-body">
 								<h5 class="card-title fw-semibold">{{ $product->name }}</h5>
-								<p class="card-text">{{ $product->description }}</p>
+								<p class="card-text">{{ Str::limit($product->description, 100, '...') }}</p>
 							</div>
 						</div>
 					</div>
@@ -145,7 +145,7 @@
 								<a href="{{ route('posts.show', $post->slug) }}" title="{{ $post->title }}">
 									<div class="card bg-light">
 										<div class="bg-image hover-zoom h-100">
-											<img src="{{ $post->image }}" class="card-img-top swiper-lazy" height="300" alt="Blog image" />
+											<img src="{{ !empty($post->image) ? asset('storage') . "/{$post->image}" : asset('assets/images/default-image.png') }}" class="card-img-top swiper-lazy" height="300" alt="Blog image" />
 											<div class="swiper-lazy-preloader"></div>
 										</div>
 										<div class="card-body">
@@ -181,7 +181,7 @@
 				@foreach ($teams as $team)
 					<div class="col-12 col-md-6 col-lg-4">
 						<div class="bg-image hover-overlay rounded mb-4 mb-lg-0" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="{{ $i += 100 }}">
-							<img src="{{ $team->image }}" class="img-fluid" alt="{{ $team->name }}" />
+							<img src="{{ !empty($team->image) ? asset('storage') . "/{$team->image}" : asset('assets/images/default-pfp.png') }}" class="img-fluid" alt="{{ $team->name }}" />
 							<div class="mask bg-dark"></div>
 							<div class="position-absolute bottom-0 start-0 text-light p-4">
 								<h5 class="mb-0 fw-bold text_shadow">{{ $team->name }}</h5>

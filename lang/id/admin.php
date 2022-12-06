@@ -99,8 +99,36 @@ return [
         'filter_placeholder' => 'Saringan',
     ],
     'grid_items_selected' => '{n} Item dipilih',
-
-    'menu_titles' => [],
+    'menu_titles' => [
+        'product' => 'Produk',
+        'team' => 'Tim',
+        'post' => 'Blog',
+        'category' => 'Kategori',
+        'author' => 'Penulis',
+        'comment' => 'Komentar',
+    ],
     'prev' => 'Sebelumnya',
     'next' => 'Selanjutnya',
+    'description' => 'Deskripsi',
+    'image' => 'Gambar',
+    'position' => 'Jabatan',
+    'profile_picture' => 'Foto Profil',
+    'category' => [
+        'id' => 'Id Kategori',
+        'name' => 'Kategori',
+    ],
+    'author' => [
+        'id' => 'Id Penulis',
+        'name' => 'Penulis',
+    ],
+    'excerpt' => 'Kutipan',
+    'published_at' => 'Diterbitkan pada',
+    'body' => 'Isi',
+    'message' => 'Pesan',
+    'email' => 'Email',
+    'website' => 'Situs Web',
+    'post' => [
+        'id' => 'Id Postingan',
+        'name' => 'Postingan',
+    ],
 ];

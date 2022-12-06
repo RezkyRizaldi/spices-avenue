@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use Encore\Admin\Traits\Resizable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Team extends Model
 {
     use HasFactory;
+    use HasSlug;
+    use Resizable;
 
     /**
      * @var array<int, string>
@@ -25,5 +30,12 @@ class Team extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
     }
 }

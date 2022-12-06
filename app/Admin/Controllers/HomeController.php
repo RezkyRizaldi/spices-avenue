@@ -10,11 +10,10 @@ use Encore\Admin\Layout\Row;
 
 class HomeController extends Controller
 {
-    public function index(Content $content)
+    public function index(Content $content): Content
     {
         return $content
             ->title('Dashboard')
-            ->description('Description...')
             ->row(Dashboard::title())
             ->row(function (Row $row) {
                 $row->column(4, function (Column $column) {

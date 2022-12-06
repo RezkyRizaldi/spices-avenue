@@ -11,11 +11,13 @@
     "php": "^8.0.2",
     "encore/laravel-admin": "^1.8.19",
     "guzzlehttp/guzzle": "^7.2",
+    "intervention/image": "^2.7",
     "laravel-admin-ext/helpers": "1.*",
     "laravel-admin-ext/summernote": "^1.0",
     "laravel/framework": "^9.19",
     "laravel/sanctum": "^3.0",
-    "laravel/tinker": "^2.7"
+    "laravel/tinker": "^2.7",
+    "spatie/laravel-sluggable": "^3.4"
   },
   "require-dev": {
     "barryvdh/laravel-ide-helper": "^2.12",

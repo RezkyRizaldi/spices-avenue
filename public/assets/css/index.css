@@ -42,6 +42,10 @@ section#gallery .gallery_img {
 	min-height: 100%;
 }
 
+section#products .card {
+	min-height: 100%;
+}
+
 section#section .mask {
 	--mdb-bg-opacity: 0.4;
 }

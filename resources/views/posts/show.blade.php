@@ -6,7 +6,7 @@
 <article id="blogDetail" class="container py-3 p-lg-5">
 	<div class="row">
 		<div class="col">
-			<img class="d-block mx-auto img-fluid" src="{{ $post->image }}" alt="{{ $post->title }}" />
+			<img class="d-block mx-auto img-fluid" src="{{ !empty($post->image) ? asset('storage') . "/{$post->image}" : asset('assets/images/default-image.png') }}" class="img-fluid" alt="{{ $post->name }}" alt="{{ $post->title }}" />
 			<h2 class="mt-3">{{ $post->title }}</h2>
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">

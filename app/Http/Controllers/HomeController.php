@@ -60,6 +60,7 @@ class HomeController extends Controller
                 ])
                 ->select('category_id', 'author_id', 'title', 'slug', 'image', 'published_at')
                 ->limit(12)
+                ->latest()
                 ->get(),
             'products' => Product::select('name', 'description', 'image')
                 ->limit(3)

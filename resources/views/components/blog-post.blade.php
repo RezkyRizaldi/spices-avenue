@@ -5,7 +5,7 @@
 				@if (request()->routeIs('authors.show'))
 					<div class="d-flex justify-content-between">
 						<h2>{{ $author->name }}</h2>
-						<img class="rounded-circle" width="150" height="150" src="{{ $author->image }}" alt="{{ $author->name }}" />
+						<img class="rounded-circle" width="150" height="150" src="{{ !empty($author->image) ? asset('storage') . "/{$author->image}" : asset('assets/images/default-pfp.png') }}" alt="{{ $author->name }}" />
 					</div>
 				@elseif (request()->routeIs('archives.show'))
 					<h2>Arsip: {{ $archivePosts->first()->date }}</h2>
@@ -17,7 +17,7 @@
 				<hr />
 				@if (request()->routeIs('archives.show'))
 					@forelse ($archivePosts as $post)
-						<img class="d-block mx-auto img-fluid" src="{{ $post->image }}" alt="{{ $post->title }}" />
+						<img class="d-block mx-auto img-fluid" src="{{ !empty($post->image) ? asset('storage') . "/{$post->image}" : asset('assets/images/default-image.png') }}" alt="{{ $post->title }}" />
 						<h2 class="mt-3">{{ $post->title }}</h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -34,7 +34,7 @@
 						</nav>
 						<div>
 							{!! $post->excerpt !!}
-							<a href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
@@ -42,7 +42,7 @@
 					@endforelse
 				@elseif (request()->routeIs('categories.show'))
 					@forelse ($category->posts as $post)
-						<img class="d-block mx-auto img-fluid" src="{{ $post->image }}" alt="{{ $post->title }}" />
+						<img class="d-block mx-auto img-fluid" src="{{ !empty($post->image) ? asset('storage') . "/{$post->image}" : asset('assets/images/default-image.png') }}" alt="{{ $post->title }}" />
 						<h2 class="mt-3">{{ $post->title }}</h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -59,7 +59,7 @@
 						</nav>
 						<div>
 							{!! $post->excerpt !!}
-							<a href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
@@ -67,7 +67,7 @@
 					@endforelse
 				@elseif (request()->routeIs('authors.show'))
 					@forelse ($author->posts as $post)
-						<img class="d-block mx-auto img-fluid" src="{{ $post->image }}" alt="{{ $post->title }}" />
+						<img class="d-block mx-auto img-fluid" src="{{ !empty($post->image) ? asset('storage') . "/{$post->image}" : asset('assets/images/default-image.png') }}" alt="{{ $post->title }}" />
 						<h2 class="mt-3">{{ $post->title }}</h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -84,7 +84,7 @@
 						</nav>
 						<div>
 							{!! $post->excerpt !!}
-							<a href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
@@ -92,7 +92,7 @@
 					@endforelse
 				@else
 					@forelse ($searchPosts as $post)
-						<img class="d-block mx-auto img-fluid" src="{{ $post->image }}" alt="{{ $post->title }}" />
+						<img class="d-block mx-auto img-fluid" src="{{ !empty($post->image) ? asset('storage') . "/{$post->image}" : asset('assets/images/default-image.png') }}" alt="{{ $post->title }}" />
 						<h2 class="mt-3">{{ $post->title }}</h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -109,7 +109,7 @@
 						</nav>
 						<div>
 							{!! $post->excerpt !!}
-							<a href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
@@ -176,7 +176,7 @@
 						@empty
 							<em>Tidak ada arsip terbaru untuk saat ini.</em>
 						@endforelse
-					<ul />
+					</ul>
 				</div>
 				<div class="my-5">
 					<h2>Kategori</h2>
@@ -188,7 +188,7 @@
 						@empty
 							<em>Tidak ada kategori untuk saat ini.</em>
 						@endforelse
-					<ul />
+					</ul>
 				</div>
 			</div>
 		</div>

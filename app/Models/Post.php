@@ -3,16 +3,21 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Encore\Admin\Traits\Resizable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Post extends Model
 {
     use HasFactory;
+    use HasSlug;
+    use Resizable;
 
     /**
      * @var array<int, string>
@@ -45,7 +50,7 @@ class Post extends Model
     protected function publishedAt(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d M Y'),
+            get: fn (string $value) => Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d F Y'),
         );
     }
 
@@ -99,5 +104,21 @@ class Post extends Model
             ->orderByDesc('id')
             ->select(['category_id', 'title', 'slug', 'image', 'body', 'published_at'])
             ->first();
+    }
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
+    }
+
+    public static function boot(): void
+    {
+        parent::boot();
+
+        static::deleting(function (Post $post) {
+            $post->comments()->get(['id'])->each->delete();
+        });
     }
 }
