@@ -6,6 +6,7 @@ use Encore\Admin\Traits\Resizable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\File;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -43,5 +44,18 @@ class Author extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+    public static function boot(): void
+    {
+        parent::boot();
+
+        static::deleting(function (Author $author) {
+            $image = public_path("storage/{$author->image}");
+
+            if (File::exists($image) && !empty($author->image)) {
+                unlink($image);
+            }
+        });
     }
 }

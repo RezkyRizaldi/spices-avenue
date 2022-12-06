@@ -20,7 +20,6 @@ class TeamFactory extends Factory
             'name' => fake()->name(),
             'slug' => fake()->unique()->slug(),
             'position' => fake()->jobTitle(),
-            'image' => fake()->imageUrl(),
         ];
     }
 }

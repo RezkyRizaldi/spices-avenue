@@ -26,7 +26,6 @@ class PostFactory extends Factory
             'author_id' => fake()->numberBetween(1, Author::count()),
             'title' => fake()->sentence(mt_rand(2, 6)),
             'slug' => fake()->unique()->slug(),
-            'image' => fake()->imageUrl(640, 480, 'herbs'),
             'excerpt' => $body->slice(0, 3)->implode(''),
             'body' => $body->implode(''),
         ];

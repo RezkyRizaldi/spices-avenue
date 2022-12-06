@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\File;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -118,7 +119,11 @@ class Post extends Model
         parent::boot();
 
         static::deleting(function (Post $post) {
-            $post->comments()->get(['id'])->each->delete();
+            $image = public_path("storage/{$post->image}");
+
+            if (File::exists($image) && !empty($post->image)) {
+                unlink($image);
+            }
         });
     }
 }

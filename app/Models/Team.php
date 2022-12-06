@@ -5,6 +5,7 @@ namespace App\Models;
 use Encore\Admin\Traits\Resizable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -37,5 +38,18 @@ class Team extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+    public static function boot(): void
+    {
+        parent::boot();
+
+        static::deleting(function (Team $team) {
+            $image = public_path("storage/{$team->image}");
+
+            if (File::exists($image) && !empty($team->image)) {
+                unlink($image);
+            }
+        });
     }
 }

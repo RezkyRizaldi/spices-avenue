@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Post::class);
+            $table->foreignIdFor(Post::class)->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('email');
             $table->text('website')->nullable();

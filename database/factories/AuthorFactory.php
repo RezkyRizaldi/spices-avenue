@@ -19,7 +19,6 @@ class AuthorFactory extends Factory
         return [
             'name' => fake()->name(),
             'slug' => fake()->unique()->slug(),
-            'image' => fake()->imageUrl(),
         ];
     }
 }

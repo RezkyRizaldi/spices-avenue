@@ -20,7 +20,6 @@ class ProductFactory extends Factory
             'name' => fake()->unique()->randomElement(['Cloves', 'Nutmeg', 'Cardamom']),
             'slug' => fake()->unique()->slug(),
             'description' => fake()->paragraph(),
-            'image' => fake()->imageUrl(),
         ];
     }
 }
