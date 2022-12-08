@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Http\Traits\BaseTrait;
 use App\Models\Product;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -10,6 +11,8 @@ use Encore\Admin\Show;
 
 class ProductController extends AdminController
 {
+    use BaseTrait;
+
     /**
      * @return string|array<int, string>|null
      */
@@ -24,7 +27,7 @@ class ProductController extends AdminController
 
         $grid->column('name', __('admin.name'))->title();
         $grid->column('description', __('admin.description'))->limit()->ucfirst();
-        $grid->column('image', __('admin.image'))->display(fn (?string $image) => ! empty($image) ? "<img class='img-thumbnail' src='".asset('storage')."/{$image}' alt='{$this->name}' width='200' height='200' />" : "<img class='img-thumbnail' src='".asset('assets/images/default-image.png')."' alt='{$this->name}' width='200' height='200' />");
+        $grid->column('image', __('admin.image'))->display(fn (?string $image) => !empty($image) ? "<img class='img-thumbnail' src='" . asset('storage') . "/{$image}' alt='{$this->name}' width='200' height='200' />" : "<img class='img-thumbnail' src='" . asset('assets/images/default-image.png') . "' alt='{$this->name}' width='200' height='200' />");
         $grid->quickSearch('name', 'description');
 
         return $grid;
@@ -37,7 +40,7 @@ class ProductController extends AdminController
         $show->field('name', __('admin.name'));
         $show->field('slug', __('Slug'));
         $show->field('description', __('admin.description'));
-        $show->field('image', __('admin.image'))->unescape()->as(fn (?string $image) => ! empty($image) ? "<img class='img-thumbnail' src='".asset('storage')."/{$image}' alt='{$this->name}' />" : "<img class='img-thumbnail' src='".asset('assets/images/default-image.png')."' alt='{$this->name}' width='200' height='200' />");
+        $show->field('image', __('admin.image'))->unescape()->as(fn (?string $image) => !empty($image) ? "<img class='img-thumbnail' src='" . asset('storage') . "/{$image}' alt='{$this->name}' />" : "<img class='img-thumbnail' src='" . asset('assets/images/default-image.png') . "' alt='{$this->name}' width='200' height='200' />");
 
         return $show;
     }
@@ -49,6 +52,11 @@ class ProductController extends AdminController
         $form->text('name', __('admin.name'))->icon('fa-shopping-bag')->autofocus()->rules(['required', 'string', 'max:255']);
         $form->textarea('description', __('admin.description'))->rules(['string', 'nullable']);
         $form->image('image', __('admin.image'))->move('/admin/products')->thumbnail('small')->uniqueName()->removable()->rules(['image', 'nullable']);
+        $form->saving(function (Form $form) {
+            if (!is_string($form->image)) {
+                $this->resizeImage($form->image, 'products');
+            }
+        });
 
         return $form;
     }
