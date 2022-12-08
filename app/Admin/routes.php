@@ -3,6 +3,7 @@
 use App\Admin\Controllers\AuthorController;
 use App\Admin\Controllers\CategoryController;
 use App\Admin\Controllers\CommentController;
+use App\Admin\Controllers\GalleryController;
 use App\Admin\Controllers\HomeController;
 use App\Admin\Controllers\PostController;
 use App\Admin\Controllers\ProductController;
@@ -24,4 +25,5 @@ Route::group([
     $router->resource('categories', CategoryController::class);
     $router->resource('authors', AuthorController::class);
     $router->resource('comments', CommentController::class);
+    $router->resource('galleries', GalleryController::class);
 });

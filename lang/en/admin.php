@@ -106,6 +106,7 @@ return [
         'category' => 'Category',
         'author' => 'Author',
         'comment' => 'Comment',
+        'gallery' => 'Gallery',
     ],
     'prev' => 'Next',
     'next' => 'Previous',

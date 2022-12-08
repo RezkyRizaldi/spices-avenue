@@ -29,7 +29,7 @@ class PostController extends AdminController
         $grid = new Grid(new Post());
 
         $grid->column('title', __('admin.title'))->title();
-        $grid->column('image', __('admin.image'))->display(fn (?string $image) => ! empty($image) ? "<img class='img-thumbnail' src='".asset('storage')."/{$image}' alt='{$this->title}' width='200' height='200' />" : "<img class='img-thumbnail' src='".asset('assets/images/default-image.png')."' alt='{$this->title}' width='200' height='200' />");
+        $grid->column('image', __('admin.image'))->lightbox(['zooming' => true, 'class' => ['thumbnail', 'rounded']])->default("<img class='img img-thumbnail img-thumbnail' src='".asset('assets/images/default-image.png')."' width='200' height='200' />");
         $grid->column('excerpt', __('admin.excerpt'))->display(fn (string $excerpt) => $excerpt)->limit()->ucfirst();
         $grid->column('published_at', __('admin.published_at'));
         $grid->quickSearch('title', 'excerpt', 'body');
@@ -64,9 +64,9 @@ class PostController extends AdminController
         $form->hidden('excerpt');
         $form->summernote('body', __('admin.body'))->rules(['required', 'string']);
         $form->saving(function (Form $form) {
-            if (! is_string($form->image)) {
-                $this->resizeImage($form->image, 'posts');
-            }
+            // if (! is_string($form->image)) {
+            //     $this->resizeImage($form->image, 'posts');
+            // }
 
             $form->excerpt = Str::words(strip_tags($form->body), 20, '');
         });

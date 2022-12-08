@@ -3,6 +3,7 @@
 namespace App\Http\Traits;
 
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\File;
 use Image;
 use Intervention\Image\Constraint;
 
@@ -10,8 +11,12 @@ trait BaseTrait
 {
     public function resizeImage(UploadedFile $file, string $path, int $width = 415, int $height = 220): void
     {
-        $image = Image::make($file);
+        $destinationPath = "storage/admin/{$path}";
 
-        $image->resize($width, $height, fn (Constraint $constraint) => $constraint->aspectRatio())->save("storage/admin/{$path}/".md5_file($file->getRealPath()).".{$file->guessClientExtension()}");
+        File::exists($destinationPath) or File::makeDirectory($destinationPath);
+
+        Image::make($file->getRealPath())
+            ->resize($width, $height, fn (Constraint $constraint) => $constraint->aspectRatio())
+            ->save("{$destinationPath}/{$file->hashName()}");
     }
 }

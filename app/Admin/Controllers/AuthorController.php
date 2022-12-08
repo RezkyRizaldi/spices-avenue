@@ -26,7 +26,7 @@ class AuthorController extends AdminController
         $grid = new Grid(new Author());
 
         $grid->column('name', __('admin.name'))->title();
-        $grid->column('image', __('admin.profile_picture'))->display(fn (?string $image) => ! empty($image) ? "<img class='img-thumbnail' src='".asset('storage')."/{$image}' alt='{$this->name}' width='200' height='200' />" : "<img class='img-thumbnail' src='".asset('assets/images/default-pfp.png')."' alt='{$this->name}' width='200' height='200' />");
+        $grid->column('image', __('admin.profile_picture'))->lightbox(['zooming' => true, 'class' => ['thumbnail', 'rounded']])->default("<img class='img img-thumbnail img-rounded' src='".asset('assets/images/default-pfp.png')."' width='200' height='200' />");
         $grid->quickSearch('name');
 
         return $grid;
@@ -49,11 +49,11 @@ class AuthorController extends AdminController
 
         $form->text('name', __('admin.name'))->autofocus()->rules(['required', 'string', 'max:255']);
         $form->image('image', __('admin.profile_picture'))->move('admin/authors')->thumbnail('small')->uniqueName()->removable()->rules(['image', 'nullable']);
-        $form->saving(function (Form $form) {
-            if (! is_string($form->image)) {
-                $this->resizeImage($form->image, 'authors', 150, 150);
-            }
-        });
+        // $form->saving(function (Form $form) {
+        //     if (! is_string($form->image)) {
+        //         $this->resizeImage($form->image, 'authors', 150, 150);
+        //     }
+        // });
 
         return $form;
     }

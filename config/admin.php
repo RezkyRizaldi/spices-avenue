@@ -138,6 +138,7 @@ return [
         'excepts' => [
             'auth/login',
             'auth/logout',
+            'locale',
         ],
     ],
 
@@ -406,9 +407,27 @@ return [
         'summernote' => [
             'enable' => true,
             'config' => [
-                'lang' => 'id-ID',
+                'lang' => 'id',
                 'height' => 500,
             ],
+        ],
+        'composer-viewer' => [
+            'enable' => true,
+            'which-composer' => '/usr/local/bin/composer',
+        ],
+        'grid-lightbox' => [
+            'enable' => true,
+        ],
+        'multi-language' => [
+            'enable' => true,
+            'languages' => [
+                'id' => 'Indonesia',
+                'en' => 'English',
+            ],
+            'default' => 'id',
+            'show-login-page' => true,
+            'show-navbar' => true,
+            'cookie-name' => 'locale',
         ],
     ],
 ];

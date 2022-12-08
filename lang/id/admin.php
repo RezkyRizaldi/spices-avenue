@@ -106,6 +106,7 @@ return [
         'category' => 'Kategori',
         'author' => 'Penulis',
         'comment' => 'Komentar',
+        'gallery' => 'Galeri',
     ],
     'prev' => 'Sebelumnya',
     'next' => 'Selanjutnya',

@@ -27,7 +27,7 @@ class ProductController extends AdminController
 
         $grid->column('name', __('admin.name'))->title();
         $grid->column('description', __('admin.description'))->limit()->ucfirst();
-        $grid->column('image', __('admin.image'))->display(fn (?string $image) => ! empty($image) ? "<img class='img-thumbnail' src='".asset('storage')."/{$image}' alt='{$this->name}' width='200' height='200' />" : "<img class='img-thumbnail' src='".asset('assets/images/default-image.png')."' alt='{$this->name}' width='200' height='200' />");
+        $grid->column('image', __('admin.image'))->lightbox(['zooming' => true, 'class' => ['thumbnail', 'rounded']])->default("<img class='img img-thumbnail img-thumbnail' src='".asset('assets/images/default-image.png')."' width='200' height='200' />");
         $grid->quickSearch('name', 'description');
 
         return $grid;
@@ -52,11 +52,11 @@ class ProductController extends AdminController
         $form->text('name', __('admin.name'))->icon('fa-shopping-bag')->autofocus()->rules(['required', 'string', 'max:255']);
         $form->textarea('description', __('admin.description'))->rules(['string', 'nullable']);
         $form->image('image', __('admin.image'))->move('/admin/products')->thumbnail('small')->uniqueName()->removable()->rules(['image', 'nullable']);
-        $form->saving(function (Form $form) {
-            if (! is_string($form->image)) {
-                $this->resizeImage($form->image, 'products');
-            }
-        });
+        // $form->saving(function (Form $form) {
+        //     if (! is_string($form->image)) {
+        //         $this->resizeImage($form->image, 'products');
+        //     }
+        // });
 
         return $form;
     }

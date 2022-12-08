@@ -46,51 +46,39 @@
 		<p class="fs-6 text-muted lead col-lg-5 mx-auto mb-5" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">{{ __('client.section.gallery.subheading') }}</p>
 		<div class="row" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
 			<div class="col-lg-3 pb-4 pb-lg-0">
-				<a href="{{ asset('assets/images/gallery1.jpeg') }}" data-lightbox="gallery1" data-title="Spices" data-alt="Spices Image">
+				<a href="{{ !empty($galleries->first()->image) ? asset('storage') . "/{$galleries->first()->image}" : asset('assets/images/default-image.png') }}" data-lightbox="gallery1" data-title="{{ $galleries->first()->name }}" data-alt="{{ $galleries->first()->name }}">
 					<div class="bg-image hover-zoom shadow-1-strong rounded h-100">
-						<img src="{{ asset('assets/images/gallery1.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 1" />
+						<img src="{{ !empty($galleries->first()->image) ? asset('storage') . "/{$galleries->first()->image}" : asset('assets/images/default-image.png') }}" class="w-100 gallery_img" alt="{{ $galleries->first()->name }}" />
 					</div>
 				</a>
 			</div>
 			<div class="col-lg-9">
 				<div class="row mb-lg-4">
 					<div class="col-lg-8 pb-4 pb-lg-0">
-						<a href="{{ asset('assets/images/gallery2.jpg') }}" data-lightbox="gallery2" data-title="Spices" data-alt="Spices Image">
+						<a href="{{ !empty($galleries->offsetGet(1)->image) ? asset('storage') . "/{$galleries->offsetGet(1)->image}" : asset('assets/images/default-image.png') }}" data-lightbox="gallery2" data-title="{{ $galleries->offsetGet(1)->name }}" data-alt="{{ $galleries->offsetGet(1)->name }}">
 							<div class="bg-image hover-zoom shadow-1-strong rounded gallery_sm">
-								<img src="{{ asset('assets/images/gallery2.jpg') }}" class="w-100 gallery_img" alt="Gallery image 2" />
+								<img src="{{ !empty($galleries->offsetGet(1)->image) ? asset('storage') . "/{$galleries->offsetGet(1)->image}" : asset('assets/images/default-image.png') }}" class="w-100 gallery_img" alt="{{ $galleries->offsetGet(1)->name }}" />
 							</div>
 						</a>
 					</div>
 					<div class="col-lg-4 pb-4 pb-lg-0">
-						<a href="{{ asset('assets/images/gallery3.jpeg') }}" data-lightbox="gallery3" data-title="Spices" data-alt="Spices Image">
+						<a href="{{ !empty($galleries->offsetGet(2)->image) ? asset('storage') . "/{$galleries->offsetGet(1)->image}" : asset('assets/images/default-image.png') }}" data-lightbox="gallery3" data-title="{{ $galleries->offsetGet(2)->name }}" data-alt="{{ $galleries->offsetGet(2)->name }}">
 							<div class="bg-image hover-zoom shadow-1-strong rounded gallery_sm">
-								<img src="{{ asset('assets/images/gallery3.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 3" />
+								<img src="{{ !empty($galleries->offsetGet(2)->image) ? asset('storage') . "/{$galleries->offsetGet(1)->image}" : asset('assets/images/default-image.png') }}" class="w-100 gallery_img" alt="{{ $galleries->offsetGet(2)->name }}" />
 							</div>
 						</a>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg pb-4 pb-lg-0">
-						<a href="{{ asset('assets/images/gallery4.jpeg') }}" data-lightbox="gallery4" data-title="Spices" data-alt="Spices Image">
-							<div class="bg-image hover-zoom shadow-1-strong rounded h-100">
-								<img src="{{ asset('assets/images/gallery4.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 4" />
-							</div>
-						</a>
-					</div>
-					<div class="col-lg pb-4 pb-lg-0">
-						<a href="{{ asset('assets/images/gallery5.jpeg') }}" data-lightbox="gallery5" data-title="Spices" data-alt="Spices Image">
-							<div class="bg-image hover-zoom shadow-1-strong rounded h-100">
-								<img src="{{ asset('assets/images/gallery5.jpeg') }}" class="w-100 gallery_img" alt="Gallery image 5" />
-							</div>
-						</a>
-					</div>
-					<div class="col-lg">
-						<a href="{{ asset('assets/images/gallery6.jpg') }}" data-lightbox="gallery6" data-title="Spices" data-alt="Spices Image">
-							<div class="bg-image hover-zoom shadow-1-strong rounded h-100">
-								<img src="{{ asset('assets/images/gallery6.jpg') }}" class="w-100 gallery_img" alt="Gallery image 6" />
-							</div>
-						</a>
-					</div>
+					@foreach ($galleries->skip(3) as $gallery)
+						<div class="col-lg {{ !$loop->last ? ' pb-4 pb-lg-0' : '' }}">
+							<a href="{{ !empty($gallery->image) ? asset('storage') . "/{$gallery->image}" : asset('assets/images/default-image.png') }}" data-lightbox="gallery{{ $gallery->id }}" data-title="{{ $gallery->name }}" data-alt="{{ $gallery->name }}">
+								<div class="bg-image hover-zoom shadow-1-strong rounded h-100">
+									<img src="{{ !empty($gallery->image) ? asset('storage') . "/{$gallery->image}" : asset('assets/images/default-image.png') }}" class="w-100 gallery_img" alt="{{ $gallery->name }}" />
+								</div>
+							</a>
+						</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
@@ -181,7 +169,7 @@
 				@foreach ($teams as $team)
 					<div class="col-12 col-md-6 col-lg-4">
 						<div class="bg-image hover-overlay rounded mb-4 mb-lg-0" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="{{ $i += 100 }}">
-							<img src="{{ !empty($team->image) ? asset('storage') . "/{$team->image}" : asset('assets/images/default-pfp.png') }}" class="img-fluid" alt="{{ $team->name }}" />
+							<img src="{{ !empty($team->image) ? asset('storage') . "/{$team->image}" : asset('assets/images/default-pfp.png') }}" class="w-100 img-fluid" alt="{{ $team->name }}" />
 							<div class="mask bg-dark"></div>
 							<div class="position-absolute bottom-0 start-0 text-light p-4">
 								<h5 class="mb-0 fw-bold text_shadow">{{ $team->name }}</h5>
@@ -239,4 +227,9 @@
 	<script type="text/javascript" src="{{ asset('assets/js/lightbox.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('assets/js/swiper.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('assets/js/aos.js') }}"></script>
+	<script type="text/javascript">
+    lightbox.option({
+			'showImageNumberLabel': false,
+		});
+</script>
 @endpush

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01183f8bf96d5ef2a37ed18e5ae0ae99",
+    "content-hash": "511e2ad5ed7c6f2e92ef5ddbfdcaefaf",
     "packages": [
         {
             "name": "brick/math",
@@ -1394,6 +1394,65 @@
             "time": "2022-05-21T17:30:32+00:00"
         },
         {
+            "name": "laravel-admin-ext/grid-lightbox",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/grid-lightbox.git",
+                "reference": "f8a247f0d017eb05830cc720fb621401b1bfbc2c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/grid-lightbox/zipball/f8a247f0d017eb05830cc720fb621401b1bfbc2c",
+                "reference": "f8a247f0d017eb05830cc720fb621401b1bfbc2c",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.6",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Grid\\Lightbox\\LightboxServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Grid\\Lightbox\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Turn your grid into a lightbox & gallery",
+            "homepage": "https://github.com/laravel-admin-ext/grid-lightbox",
+            "keywords": [
+                "extension",
+                "gallery",
+                "grid",
+                "laravel-admin",
+                "lightbox"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel-admin-extensions/grid-lightbox/issues",
+                "source": "https://github.com/laravel-admin-extensions/grid-lightbox/tree/v1.0.3"
+            },
+            "time": "2019-10-11T06:38:51+00:00"
+        },
+        {
             "name": "laravel-admin-ext/helpers",
             "version": "v1.2",
             "source": {
@@ -1505,6 +1564,62 @@
                 "source": "https://github.com/laravel-admin-extensions/summernote/tree/v1.0.3"
             },
             "time": "2021-10-20T04:08:14+00:00"
+        },
+        {
+            "name": "laravel-admin-extensions/multi-language",
+            "version": "0.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/multi-language.git",
+                "reference": "945bf16f23747a4c6233837db96746e795ef5239"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/multi-language/zipball/945bf16f23747a4c6233837db96746e795ef5239",
+                "reference": "945bf16f23747a4c6233837db96746e795ef5239",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.6",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "KevinSoft\\MultiLanguage\\MultiLanguageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "KevinSoft\\MultiLanguage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "wangxk",
+                    "email": "wangxkww@foxmail.com"
+                }
+            ],
+            "description": "适用于laravel-admin的多语言支持扩展",
+            "homepage": "https://github.com/laravel-admin-extensions/multi-language",
+            "keywords": [
+                "extension",
+                "laravel-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel-admin-extensions/multi-language/issues",
+                "source": "https://github.com/laravel-admin-extensions/multi-language/tree/0.0.6"
+            },
+            "time": "2020-02-29T05:25:42+00:00"
         },
         {
             "name": "laravel/framework",

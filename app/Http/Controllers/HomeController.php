@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Gallery;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Team;
@@ -54,6 +55,10 @@ class HomeController extends Controller
         }
 
         return view('index', [
+            'galleries' => Gallery::select('id', 'name', 'image')
+                ->limit(6)
+                ->latest()
+                ->get(),
             'posts' => Post::query()
                 ->with([
                     'category' => fn (BelongsTo $query) => $query->select('id', 'name'),
