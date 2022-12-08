@@ -121,7 +121,7 @@ class Post extends Model
         static::deleting(function (Post $post) {
             $image = public_path("storage/{$post->image}");
 
-            if (File::exists($image) && !empty($post->image)) {
+            if (File::exists($image) && ! empty($post->image)) {
                 unlink($image);
             }
         });

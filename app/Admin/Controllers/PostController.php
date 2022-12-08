@@ -26,7 +26,7 @@ class PostController extends AdminController
         $grid = new Grid(new Post());
 
         $grid->column('title', __('admin.title'))->title();
-        $grid->column('image', __('admin.image'))->display(fn (?string $image) => !empty($image) ? "<img class='img-thumbnail' src='" . asset('storage') . "/{$image}' alt='{$this->title}' width='200' height='200' />" : "<img class='img-thumbnail' src='" . asset('assets/images/default-image.png') . "' alt='{$this->title}' width='200' height='200' />");
+        $grid->column('image', __('admin.image'))->display(fn (?string $image) => ! empty($image) ? "<img class='img-thumbnail' src='".asset('storage')."/{$image}' alt='{$this->title}' width='200' height='200' />" : "<img class='img-thumbnail' src='".asset('assets/images/default-image.png')."' alt='{$this->title}' width='200' height='200' />");
         $grid->column('excerpt', __('admin.excerpt'))->display(fn (string $excerpt) => $excerpt)->limit()->ucfirst();
         $grid->column('published_at', __('admin.published_at'));
         $grid->quickSearch('title', 'excerpt', 'body');
@@ -42,7 +42,7 @@ class PostController extends AdminController
         $show->field('author.name', __('admin.author.name'));
         $show->field('title', __('admin.title'));
         $show->field('slug', __('admin.slug'));
-        $show->field('image', __('admin.image'))->unescape()->as(fn (?string $image) => !empty($image) ? "<img class='img-thumbnail' src='" . asset('storage') . "/{$image}' alt='{$this->title}' width='200' height='200' />" : "<img class='img-thumbnail' src='" . asset('assets/images/default-image.png') . "' alt='{$this->title}' width='200' height='200' />");
+        $show->field('image', __('admin.image'))->unescape()->as(fn (?string $image) => ! empty($image) ? "<img class='img-thumbnail' src='".asset('storage')."/{$image}' alt='{$this->title}' width='200' height='200' />" : "<img class='img-thumbnail' src='".asset('assets/images/default-image.png')."' alt='{$this->title}' width='200' height='200' />");
         $show->field('excerpt', __('admin.excerpt'))->unescape();
         $show->field('body', __('admin.body'))->unescape();
         $show->field('published_at', __('admin.published_at'));

@@ -8,9 +8,9 @@
 						<img class="rounded-circle" width="150" height="150" src="{{ !empty($author->image) ? asset('storage') . "/{$author->image}" : asset('assets/images/default-pfp.png') }}" alt="{{ $author->name }}" />
 					</div>
 				@elseif (request()->routeIs('archives.show'))
-					<h2>Arsip: {{ $archivePosts->first()->date }}</h2>
+					<h2>{{ __('client.page.archive.heading') }}: {{ $archivePosts->first()->date }}</h2>
 				@elseif (request()->routeIs('home') && !empty(request('search')))
-					<h2>Hasil pencarian untuk: {{ request('search') }}</h2>
+					<h2>{{ __('client.page.search.heading') }}: {{ request('search') }}</h2>
 				@else
 					<h2>{{ $category->name }}</h2>
 				@endif
@@ -22,23 +22,23 @@
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a title="Tinggalkan Komentar" href="{{ route('posts.show', $post->slug) . '#respond' }}">Tinggalkan Komentar</a>
+									<a title="{{ __('client.page.post.comment') }}" href="{{ route('posts.show', $post->slug) . '#respond' }}">{{ __('client.page.post.comment') }}</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
 									<a title="{{ $post->category->name }}" href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('authors.show') ? ' active' : '' }}" {{ request()->routeIs('authors.show') ? 'aria-current="page"' : '' }}>
-									By <a title="{{ $post->author->name }}" href="{{ route('authors.show', $post->author->slug) }}">{{ $post->author->name }}</a>
+									{{ __('client.page.post.author') }} <a title="{{ $post->author->name }}" href="{{ route('authors.show', $post->author->slug) }}">{{ $post->author->name }}</a>
 								</li>
 							</ol>
 						</nav>
 						<div>
 							{!! $post->excerpt !!}
-							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="{{ __('client.page.post.more') }}">{{ __('client.page.post.more') }} <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
-						<p>Tidak ada data yang sesuai dengan istilah pencarian Anda. Silakan coba lagi dengan kata kunci yang berbeda.</p>
+						<p>{{ __('client.page.search.not_found') }}</p>
 					@endforelse
 				@elseif (request()->routeIs('categories.show'))
 					@forelse ($category->posts as $post)
@@ -47,23 +47,23 @@
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a title="Tinggalkan Komentar" href="{{ route('posts.show', $post->slug) . '#respond' }}">Tinggalkan Komentar</a>
+									<a title="{{ __('client.page.post.comment') }}" href="{{ route('posts.show', $post->slug) . '#respond' }}">{{ __('client.page.post.comment') }}</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
 									<a title="{{ $post->category->name }}" href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('authors.show') ? ' active' : '' }}" {{ request()->routeIs('authors.show') ? 'aria-current="page"' : '' }}>
-									By <a title="{{ $post->author->name }}" href="{{ route('authors.show', $post->author->slug) }}">{{ $post->author->name }}</a>
+									{{ __('client.page.post.author') }} <a title="{{ $post->author->name }}" href="{{ route('authors.show', $post->author->slug) }}">{{ $post->author->name }}</a>
 								</li>
 							</ol>
 						</nav>
 						<div>
 							{!! $post->excerpt !!}
-							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="{{ __('client.page.post.more') }}">{{ __('client.page.post.more') }} <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
-						<p>Tidak ada data yang sesuai dengan istilah pencarian Anda. Silakan coba lagi dengan kata kunci yang berbeda.</p>
+						<p>{{ __('client.page.search.not_found') }}</p>
 					@endforelse
 				@elseif (request()->routeIs('authors.show'))
 					@forelse ($author->posts as $post)
@@ -72,23 +72,23 @@
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a title="Tinggalkan Komentar" href="{{ route('posts.show', $post->slug) . '#respond' }}">Tinggalkan Komentar</a>
+									<a title="{{ __('client.page.post.comment') }}" href="{{ route('posts.show', $post->slug) . '#respond' }}">{{ __('client.page.post.comment') }}</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
 									<a title="{{ $post->category->name }}" href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('authors.show') ? ' active' : '' }}" {{ request()->routeIs('authors.show') ? 'aria-current="page"' : '' }}>
-									By <a title="{{ $post->author->name }}" href="{{ route('authors.show', $post->author->slug) }}">{{ $post->author->name }}</a>
+									{{ __('client.page.post.author') }} <a title="{{ $post->author->name }}" href="{{ route('authors.show', $post->author->slug) }}">{{ $post->author->name }}</a>
 								</li>
 							</ol>
 						</nav>
 						<div>
 							{!! $post->excerpt !!}
-							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="{{ __('client.page.post.more') }}">{{ __('client.page.post.more') }} <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
-						<p>Tidak ada data yang sesuai dengan istilah pencarian Anda. Silakan coba lagi dengan kata kunci yang berbeda.</p>
+						<p>{{ __('client.page.search.not_found') }}</p>
 					@endforelse
 				@else
 					@forelse ($searchPosts as $post)
@@ -97,23 +97,23 @@
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a title="Tinggalkan Komentar" href="{{ route('posts.show', $post->slug) . '#respond' }}">Tinggalkan Komentar</a>
+									<a title="{{ __('client.page.post.comment') }}" href="{{ route('posts.show', $post->slug) . '#respond' }}">{{ __('client.page.post.comment') }}</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
 									<a title="{{ $post->category->name }}" href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category->name }}</a>
 								</li>
 								<li class="breadcrumb-item{{ request()->routeIs('authors.show') ? ' active' : '' }}" {{ request()->routeIs('authors.show') ? 'aria-current="page"' : '' }}>
-									By <a title="{{ $post->author->name }}" href="{{ route('authors.show', $post->author->slug) }}">{{ $post->author->name }}</a>
+									{{ __('client.page.post.author') }} <a title="{{ $post->author->name }}" href="{{ route('authors.show', $post->author->slug) }}">{{ $post->author->name }}</a>
 								</li>
 							</ol>
 						</nav>
 						<div>
 							{!! $post->excerpt !!}
-							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="Baca Selengkapnya">Baca Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+							<a class="d-block" href="{{ route('posts.show', $post->slug) }}" title="{{ __('client.page.post.more') }}">{{ __('client.page.post.more') }} <i class="fa-solid fa-angles-right"></i></a>
 						</div>
 						<hr />
 					@empty
-						<p>Tidak ada data yang sesuai dengan istilah pencarian Anda. Silakan coba lagi dengan kata kunci yang berbeda.</p>
+						<p>{{ __('client.page.search.not_found') }}</p>
 					@endforelse
 				@endif
 			</div>
@@ -125,7 +125,7 @@
 					<div class="input-group">
 						<div class="form-outline">
 							<input type="search" name="search" id="search" class="form-control" value="{{ request('search') }}" />
-							<label class="form-label" for="search">Cari</label>
+							<label class="form-label" for="search">{{ __('client.page.search.form.search') }}</label>
 						</div>
 						<button type="submit" class="btn btn-primary" aria-label="Search form">
 							<i class="fas fa-search"></i>
@@ -133,19 +133,19 @@
 					</div>
 				</form>
 				<div class="my-5">
-					<h2>Postingan Terbaru</h2>
+					<h2>{{ __('client.page.post.new.heading') }}</h2>
 					<ul class="list-unstyled">
 						@forelse ($posts as $post)
 							<li>
 								<a title="{{ $post->title }}" class="text-decoration-underline" href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
 							</li>
 						@empty
-							<em>Tidak ada postingan terbaru untuk saat ini.</em>
+							<em>{{ __('client.page.post.not_found') }}</em>
 						@endforelse
 					</ul>
 				</div>
 				<div class="my-5">
-					<h2>Komentar Terbaru</h2>
+					<h2>{{ __('client.page.comment.new.heading') }}</h2>
 					<ul class="list-group list-group-light">
 						@forelse ($comments as $comment)
 							<li class="list-group-item">
@@ -162,31 +162,31 @@
 								</figure>
 							</li>
 						@empty
-							<em>Tidak ada komentar terbaru untuk saat ini.</em>
+							<em>{{ __('client.page.comment.not_found') }}</em>
 						@endforelse
 					</ul>
 				</div>
 				<div class="my-5">
-					<h2>Arsip</h2>
+					<h2>{{ __('client.page.archive.heading') }}</h2>
 					<ul class="list-unstyled">
 						@forelse ($archives as $archive)
 							<li>
 								<a title="{{ $archive->date }}" class="text-decoration-underline" href="{{ route('archives.show', Str::slug($archive->slug)) }}">{{ $archive->date }}</a>
 							</li>
 						@empty
-							<em>Tidak ada arsip terbaru untuk saat ini.</em>
+							<em>{{ __('client.page.archive.not_found') }}</em>
 						@endforelse
 					</ul>
 				</div>
 				<div class="my-5">
-					<h2>Kategori</h2>
+					<h2>{{ __('client.page.category.heading') }}</h2>
 					<ul class="list-unstyled">
 						@forelse ($categories as $category)
 							<li>
 								<a title="{{ $category->name }}" class="text-decoration-underline" href="{{ route('categories.show', $category->slug) }}">{{ $category->name }}</a>
 							</li>
 						@empty
-							<em>Tidak ada kategori untuk saat ini.</em>
+							<em>{{ __('client.page.category.not_found') }}</em>
 						@endforelse
 					</ul>
 				</div>

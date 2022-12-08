@@ -5,13 +5,13 @@
 				<div id="address" class="pt-5 px-3 p-lg-5">
 					<div class="p-3">
 						<img width="200" src="https://template52.webekspor.com/wp-content/uploads/2022/03/logo-ekspor-white.png" alt="{{ config('app.name') . ' Logo' }}" />
-						<p class="mt-3 text-light col-8">Jl. Indonesia Raya, Sudirman, Jakarta Selatan, DKI Jakarta,  Indonesia, 10150</p>
+						<p class="mt-3 text-light col-8">{{ __('client.footer.address') }}</p>
 						<ul class="fa-ul my-4 text-light">
 							<li>
 								<span class="fa-li">
 									<i class="fa-regular fa-clock"></i>
 								</span>
-								Jam Kerja: 09:00 WIB - 18:00 WIB
+								{{ __('client.footer.office_hours') }}
 							</li>
 							<li>
 								<span class="fa-li">

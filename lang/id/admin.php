@@ -131,4 +131,5 @@ return [
         'id' => 'Id Postingan',
         'name' => 'Postingan',
     ],
+    'quick_create' => 'Buat cepat',
 ];

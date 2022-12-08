@@ -12,6 +12,6 @@ class CommentController extends Controller
     {
         Comment::create($request->validated());
 
-        return back()->with('success', 'Data berhasil ditambahkan!');
+        return back()->with('success', __('client.page.post.form.alert'));
     }
 }

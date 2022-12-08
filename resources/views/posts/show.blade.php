@@ -11,13 +11,13 @@
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">
-						<a href="#respond" title="Tinggalkan Komentar">Tinggalkan Komentar</a>
+						<a href="#respond" title="{{ __('client.page.post.comment') }}">{{ __('client.page.post.comment') }}</a>
 					</li>
 					<li class="breadcrumb-item{{ request()->routeIs('categories.show') ? ' active' : '' }}" {{ request()->routeIs('categories.show') ? 'aria-current="page"' : '' }}>
 						<a href="{{ route('categories.show', $post->category->slug) }}" title="{{ $post->category->name }}">{{ $post->category->name }}</a>
 					</li>
 					<li class="breadcrumb-item{{ request()->routeIs('auhtors.show') ? ' active' : '' }}" {{ request()->routeIs('authors.show') ? 'aria-current="page"' : '' }}>
-						By <a href="{{ route('authors.show', $post->author->slug) }}" title="{{ $post->author->name }}">{{ $post->author->name }}</a>
+						{{ __('client.page.post.author') }} <a href="{{ route('authors.show', $post->author->slug) }}" title="{{ $post->author->name }}">{{ $post->author->name }}</a>
 					</li>
 				</ol>
 			</nav>
@@ -28,20 +28,20 @@
 					@if (!empty($post->previous()))
 					<a href="{{ route('posts.show', $post->previous()->slug) }}" title="{{ $post->previous()->title }}">
 						<i class="fa-solid fa-arrow-left me-2"></i>
-						Postingan Sebelumnya
+						{{ __('client.page.post.prev') }}
 					</a>
 					@endif
 					@if (!empty($post->next()))
 					<a href="{{ route('posts.show', $post->next()->slug) }}" title="{{ $post->next()->title }}">
-						Postingan Selanjutnya
+						{{ __('client.page.post.next') }}
 						<i class="fa-solid fa-arrow-right ms-2"></i>
 					</a>
 					@endif
 				</div>
 				<hr />
 				<section id="respond">
-					<h3>Tinggalkan Komentar</h3>
-					<p>Alamat email Anda tidak akan dipublikasikan.</p>
+					<h3>{{ __('client.page.search.form.heading') }}</h3>
+					<p>{{ __('client.page.search.form.subheading') }}</p>
 					@if (session()->has('success'))
 						<div class="alert alert-success alert-dismissible fade show" role="alert">
 							{{ session()->get('success') }}
@@ -54,7 +54,7 @@
 						<div class="mb-3 pb-1">
 							<div class="form-outline">
 								<textarea class="form-control @error('message') is-invalid @enderror" name="message" value="{{ old('message') }}" id="message" rows="8"></textarea>
-								<label class="form-label" for="message">Pesan</label>
+								<label class="form-label" for="message">{{ __('client.page.search.form.message') }}</label>
 								@error('message')
 									<div class="invalid-feedback">{{ $message }}</div>
 								@enderror
@@ -64,7 +64,7 @@
 							<div class="col-12 col-lg-4">
 								<div class="form-outline">
 									<input type="text" name="name" value="{{ old('name') }}" id="name" class="form-control @error('name') is-invalid @enderror" />
-									<label class="form-label" for="name">Nama</label>
+									<label class="form-label" for="name">{{ __('client.page.search.form.name') }}</label>
 									@error('name')
 										<div class="invalid-feedback">{{ $message }}</div>
 									@enderror
@@ -73,7 +73,7 @@
 							<div class="col-12 col-lg-4">
 								<div class="form-outline">
 									<input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control @error('email') is-invalid @enderror" />
-									<label class="form-label" for="email">Email</label>
+									<label class="form-label" for="email">{{ __('client.page.search.form.email') }}</label>
 									@error('email')
 										<div class="invalid-feedback">{{ $message }}</div>
 									@enderror
@@ -82,14 +82,14 @@
 							<div class="col-12 col-lg-4">
 								<div class="form-outline">
 									<input type="url" name="website" value="{{ old('website') }}" id="website" class="form-control @error('website') is-invalid @enderror" />
-									<label class="form-label" for="website">Website</label>
+									<label class="form-label" for="website">{{ __('client.page.search.form.website') }}</label>
 									@error('website')
 										<div class="invalid-feedback">{{ $message }}</div>
 									@enderror
 								</div>
 							</div>
 						</div>
-						<button type="submit" class="btn btn-primary mb-4" title="Kirim">Kirim<i class="fa-solid fa-paper-plane ms-2"></i></button>
+						<button type="submit" class="btn btn-primary mb-4" title="{{ __('client.page.search.form.button') }}">{{ __('client.page.search.form.button') }}<i class="fa-solid fa-paper-plane ms-2"></i></button>
 					</form>
 				</section>
 			</div>

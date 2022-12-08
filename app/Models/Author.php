@@ -53,7 +53,7 @@ class Author extends Model
         static::deleting(function (Author $author) {
             $image = public_path("storage/{$author->image}");
 
-            if (File::exists($image) && !empty($author->image)) {
+            if (File::exists($image) && ! empty($author->image)) {
                 unlink($image);
             }
         });

@@ -30,6 +30,7 @@ class CommentController extends AdminController
         $grid->actions(function (Actions $actions) {
             $actions->disableEdit();
         });
+        $grid->quickSearch('name', 'message');
 
         return $grid;
     }

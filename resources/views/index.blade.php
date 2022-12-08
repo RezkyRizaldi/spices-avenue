@@ -12,7 +12,7 @@
 						<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						<img src="{{ $product->image }}" class="w-100 mb-3 img-thumbnail" alt="{{ $product->name }}" />
+						<img src="{{ !empty($product->image) ? asset('storage') . "/{$product->image}" : asset('assets/images/default-image.png') }}" class="w-100 mb-3 img-thumbnail" alt="{{ $product->name }}" />
 						<p class="text-muted">{{ $product->description }}</p>
 					</div>
 				</div>
@@ -22,8 +22,8 @@
 	<section id="hero" class="p-lg-5" data-aos="fade-in">
 		<div id="heroContainer" class="container-fluid p-4 p-lg-5">
 			<div id="heroWrapper">
-				<h1 class="display-4 text-uppercase fw-semibold">The World's Spice Producers</h1>
-				<p class="text-muted fs-6 lead">Spices is Indonesia's fourth largest export commodity, after shrimp, fish and coffee. As one of the world's spice producers, Indonesia has a great opportunity as a supplier of the world's spices to contribute to the Indonesian economy.</p>
+				<h1 class="display-4 text-uppercase fw-semibold">{{ __('client.section.hero.heading') }}</h1>
+				<p class="text-muted fs-6 lead">{{ __('client.section.hero.description') }}</p>
 			</div>
 		</div>
 	</section>
@@ -31,9 +31,9 @@
 		<div class="row flex-column flex-lg-row align-items-center justify-content-between">
 			<div class="col-lg-5 flex-grow-1 order-1 order-lg-0 mt-5 mt-lg-0">
 				<div data-aos="fade-right" data-aos-duration="1500">
-					<h2 class="display-6 text-uppercase fw-normal">Spices is Indonesia's fourth largest export commodity</h2>
-					<p class="text-muted fs-6 lead">The largest exporter of spice and spice items. Spices is Indonesia's fourth largest export commodity, after shrimp, fish and coffee. As one of the world's spice producers, Indonesia has a great opportunity as a supplier of the world's spices to contribute to the Indonesian economy.</p>
-					<p class="text-muted fs-6 lead">Spices is a plant species that has a strong taste and aroma and also serves as a flavor and food flavor enhancer.</p>
+					<h2 class="display-6 text-uppercase fw-normal">{{ __('client.section.about.heading') }}</h2>
+					<p class="text-muted fs-6 lead">{{ __('client.section.about.description') }}</p>
+					<p class="text-muted fs-6 lead">{{ __('client.section.about.description2') }}</p>
 				</div>
 			</div>
 			<div class="col-lg-7 flex-shrink-0">
@@ -42,8 +42,8 @@
 		</div>
 	</section>
 	<section id="gallery" class="pt-5 px-3 p-lg-3 text-center">
-		<h2 class="text-uppercase" data-aos="fade-up" data-aos-duration="1500">Our Gallery</h2>
-		<p class="fs-6 text-muted lead col-lg-5 mx-auto mb-5" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">You can see our gallery here, click to checkout our collections. You can see our daily activity and products that exported to many countries and regions all over the world.</p>
+		<h2 class="text-uppercase" data-aos="fade-up" data-aos-duration="1500">{{ __('client.section.gallery.heading') }}</h2>
+		<p class="fs-6 text-muted lead col-lg-5 mx-auto mb-5" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">{{ __('client.section.gallery.subheading') }}</p>
 		<div class="row" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
 			<div class="col-lg-3 pb-4 pb-lg-0">
 				<a href="{{ asset('assets/images/gallery1.jpeg') }}" data-lightbox="gallery1" data-title="Spices" data-alt="Spices Image">
@@ -102,8 +102,8 @@
 			</div>
 			<div class="col-lg-5 flex-grow-1">
 				<div data-aos="fade-left" data-aos-duration="1500">
-					<h2 class="display-6 text-uppercase fw-normal">Over ten years in business</h2>
-					<p class="text-muted fs-6 lead">Indonesia's main export products for spices are nutmeg, cloves, white pepper, cinnamon, and cardamom, with the majority of its importers being the United States, China, India, Vietnam, and the Netherlands.</p>
+					<h2 class="display-6 text-uppercase fw-normal">{{ __('client.section.hero2.heading') }}</h2>
+					<p class="text-muted fs-6 lead">{{ __('client.section.hero2.description') }}</p>
 				</div>
 			</div>
 		</div>
@@ -113,8 +113,8 @@
 	</section>
 	<section id="products" class="py-5 px-3 p-lg-5 text-center bg-light">
 		<div class="pb-5">
-			<h2 class="text-uppercase">Products</h2>
-			<p class="fs-6 text-muted col-lg-5 lead mx-auto mb-5">Learn more about our product. You can see our product here, click to see more detail about our product.</p>
+			<h2 class="text-uppercase">{{ __('client.section.products.heading') }}</h2>
+			<p class="fs-6 text-muted col-lg-5 lead mx-auto mb-5">{{ __('client.section.products.subheading') }}</p>
 			<div class="row">
 				@foreach ($products as $product)
 					<div class="col-12 col-md-6 col-lg-4">
@@ -133,8 +133,8 @@
 	<section id="blog" class="p-3">
 		<div class="row align-items-center">
 			<div class="col-12 col-lg-3">
-				<h2 class="text-uppercase">Blog</h2>
-				<p class="fs-6 text-muted lead mb-5" data-aos="fade-up" data-aos-duration="1500">You can see our blog here, click to see blog detail. You can see our daily activity or news about exported, product process and many more.</p>
+				<h2 class="text-uppercase">{{ __('client.section.blog.heading') }}</h2>
+				<p class="fs-6 text-muted lead mb-5" data-aos="fade-up" data-aos-duration="1500">{{ __('client.section.blog.subheading') }}</p>
 			</div>
 			<div class="col-12 col-lg-9">
 				<div id="blogSwiper" class="swiper">
@@ -168,14 +168,14 @@
 			<img src="{{ asset('assets/images/section-bg.jpeg') }}" class="w-100" alt="Section background" />
 			<div class="mask bg-dark">
 				<div class="d-flex justify-content-center align-items-center h-100">
-					<p class="text-white mb-0 display-5 text-uppercase fw-light text-center" data-aos="fade-in" data-aos-duration="1000">The largest exporter of<br />spice and spice items</h2>
+					<p class="text-white mb-0 display-5 text-uppercase fw-light text-center" data-aos="fade-in" data-aos-duration="1000">{{ __('client.section.parallax.heading_line1') }}<br />{{ __('client.section.parallax.heading_line2') }}</h2>
 				</div>
 			</div>
 		</div>
 	</section>
 	<section id="team" class="py-5 px-3 p-lg-5">
 		<div class="p-lg-5">
-			<h2 class="text-uppercase mb-4 text-center" data-aos="fade-in" data-aos-duration="1000">Our Team</h2>
+			<h2 class="text-uppercase mb-4 text-center" data-aos="fade-in" data-aos-duration="1000">{{ __('client.section.team.heading') }}</h2>
 			<div class="row">
 				@php $i = 0; @endphp
 				@foreach ($teams as $team)
@@ -195,20 +195,20 @@
 	</section>
 	<section id="contact" class="py-5 px-3 p-lg-5 text-center">
 		<div class="p-lg-5">
-			<h2 class="text-uppercase" data-aos="fade-up" data-aos-duration="1500">Contact Us</h2>
+			<h2 class="text-uppercase" data-aos="fade-up" data-aos-duration="1500">{{ __('client.section.contact.heading') }}</h2>
 			<hr class="opacity-100 mx-auto rounded mb-4 border border-2 border-success" />
 			<div class="d-flex flex-column flex-lg-row align-items-center justify-content-center gap-3">
 				<div class="card border border-1 shadow-0" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
 					<div class="card-body">
 						<i class="fa-solid fa-xl fa-phone text-success mb-2"></i>
-						<h5 class="card-title fw-bold">Call us at</h5>
+						<h5 class="card-title fw-bold">{{ __('client.section.contact.phone') }}</h5>
 						<h6 class="card-subtitle mb-2 text-muted">(+62) 1334 5678</h6>
 					</div>
 				</div>
 				<div class="card border border-1 shadow-0" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
 					<div class="card-body">
 						<i class="fa-solid fa-xl fa-paper-plane text-success mb-2"></i>
-						<h5 class="card-title fw-bold">Email us at</h5>
+						<h5 class="card-title fw-bold">{{ __('client.section.contact.email') }}</h5>
 						<h6 class="card-subtitle mb-2 text-muted">mail@example.com</h6>
 					</div>
 				</div>
