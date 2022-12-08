@@ -18,7 +18,7 @@ return [
         'about' => [
             'heading' => 'Rempah Adalah Komoditi Ekspor Terbesar Keempat di Indonesia',
             'description' => 'Pengekspor rempah-rempah dan rempah-rempah terbesar. Rempah-rempah merupakan komoditas ekspor terbesar keempat Indonesia, setelah udang, ikan, dan kopi. Sebagai salah satu penghasil rempah dunia, Indonesia memiliki peluang besar sebagai pemasok rempah dunia untuk memberikan kontribusi bagi perekonomian Indonesia.',
-            'description2' => 'Rempah-rempah merupakan salah satu jenis tumbuhan yang memiliki rasa dan aroma yang kuat dan juga berfungsi sebagai penyedap rasa dan penyedap makanan.'
+            'description2' => 'Rempah-rempah merupakan salah satu jenis tumbuhan yang memiliki rasa dan aroma yang kuat dan juga berfungsi sebagai penyedap rasa dan penyedap makanan.',
         ],
         'gallery' => [
             'heading' => 'Galeri Kami',

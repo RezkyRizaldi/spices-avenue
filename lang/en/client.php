@@ -39,7 +39,7 @@ return [
         ],
         'parallax' => [
             'heading_line1' => 'The largest exporter of',
-            'heading_;ine2' => 'spice and spice items'
+            'heading_;ine2' => 'spice and spice items',
         ],
         'team' => [
             'heading' => 'Our Team',
@@ -68,7 +68,7 @@ return [
         ],
         'archive' => [
             'heading' => 'Archive',
-            'not_found' => 'There are no recent archives for now.'
+            'not_found' => 'There are no recent archives for now.',
         ],
         'search' => [
             'heading' => 'Search result for',

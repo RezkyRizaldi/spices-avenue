@@ -47,7 +47,7 @@ class Team extends Model
         static::deleting(function (Team $team) {
             $image = public_path("storage/{$team->image}");
 
-            if (File::exists($image) && !empty($team->image)) {
+            if (File::exists($image) && ! empty($team->image)) {
                 unlink($image);
             }
         });

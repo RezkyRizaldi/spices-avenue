@@ -12,6 +12,6 @@ trait BaseTrait
     {
         $image = Image::make($file);
 
-        $image->resize($width, $height, fn (Constraint $constraint) => $constraint->aspectRatio())->save("storage/admin/{$path}/" . md5_file($file->getRealPath()) . ".{$file->guessClientExtension()}");
+        $image->resize($width, $height, fn (Constraint $constraint) => $constraint->aspectRatio())->save("storage/admin/{$path}/".md5_file($file->getRealPath()).".{$file->guessClientExtension()}");
     }
 }
